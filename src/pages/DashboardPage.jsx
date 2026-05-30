@@ -85,12 +85,12 @@ const DashboardPage = () => {
   };
 
   return (
-    <div className="min-h-screen bg-slate-50/50 flex">
+    <div className="min-h-screen bg-slate-50/50 flex flex-col md:flex-row">
       {/* Sidebar Navigation */}
       <Sidebar />
 
       {/* Main Content Area */}
-      <main className="flex-1 overflow-y-auto px-10 py-8 text-left select-none">
+      <main className="flex-1 overflow-y-auto px-4 md:px-10 py-6 md:py-8 text-left select-none">
         {isLoading ? (
           /* High-end loading skeleton */
           <div className="space-y-8 animate-pulse">

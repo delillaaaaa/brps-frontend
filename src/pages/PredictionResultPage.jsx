@@ -119,14 +119,14 @@ const PredictionResultPage = () => {
   const strokeDashoffset = circumference - (scorePercent / 100) * circumference;
 
   return (
-    <div className="min-h-screen bg-slate-50/50 flex print:bg-white print:p-0">
+    <div className="min-h-screen bg-slate-50/50 flex flex-col md:flex-row print:bg-white print:p-0">
       {/* Hide Sidebar when printing */}
       <div className="print:hidden">
         <Sidebar />
       </div>
 
       {/* Main Results Panel */}
-      <main className="flex-1 overflow-y-auto px-10 py-8 text-left select-none print:px-0 print:py-4">
+      <main className="flex-1 overflow-y-auto px-4 md:px-10 py-6 md:py-8 text-left select-none print:px-0 print:py-4">
         {isLoading ? (
           <div className="space-y-8 animate-pulse">
             <div className="h-16 bg-white border border-slate-100 rounded-3xl w-full" />

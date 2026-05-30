@@ -32,11 +32,6 @@ const ProtectedRoute = ({ children }) => {
     return <Navigate to="/setup-profile" replace />;
   }
 
-  // If profile is already complete, don't let them go to '/setup-profile'
-  if (!profileSetupRequired && location.pathname === '/setup-profile') {
-    return <Navigate to="/dashboard" replace />;
-  }
-
   return children;
 };
 

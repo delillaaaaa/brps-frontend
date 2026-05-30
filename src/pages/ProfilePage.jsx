@@ -98,12 +98,12 @@ const ProfilePage = () => {
   };
 
   return (
-    <div className="min-h-screen bg-slate-50/50 flex">
+    <div className="min-h-screen bg-slate-50/50 flex flex-col md:flex-row">
       {/* Sidebar Navigation */}
       <Sidebar />
 
       {/* Main Form content */}
-      <main className="flex-1 overflow-y-auto px-10 py-8 text-left select-none">
+      <main className="flex-1 overflow-y-auto px-4 md:px-10 py-6 md:py-8 text-left select-none">
         <div className="max-w-4xl space-y-8 animate-fade-in" style={{ animation: 'fadeIn 0.3s ease-out' }}>
           
           {/* Header section */}
