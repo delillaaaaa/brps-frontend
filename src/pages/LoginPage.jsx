@@ -89,7 +89,8 @@ const LoginPage = () => {
               <div className="relative">
                 <Lock className="w-5 h-5 text-slate-400 dark:text-slate-500 absolute left-4 top-1/2 -translate-y-1/2" />
                 <input
-                  type={showPassword ? 'text' : 'password'}
+                  type="text"
+                  style={{ WebkitTextSecurity: showPassword ? 'none' : 'disc' }}
                   required
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
