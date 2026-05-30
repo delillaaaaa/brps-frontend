@@ -189,18 +189,34 @@ const SetupProfilePage = () => {
               </div>
 
               {/* Years Experience Input */}
-              <div className="space-y-1.5">
+              <div className="space-y-1.5 text-left">
                 <label className="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider">Years of Experience</label>
-                <input
-                  type="number"
-                  required
-                  min="0"
-                  max="60"
-                  value={yearsExperience}
-                  onChange={(e) => setYearsExperience(Math.max(0, parseInt(e.target.value) || 0))}
-                  placeholder="e.g. 5"
-                  className="w-full px-4 py-3 bg-slate-50/70 dark:bg-slate-950/40 border border-slate-200/80 dark:border-slate-800 rounded-xl text-slate-700 dark:text-slate-200 text-sm focus:outline-none focus:border-teal-500 focus:bg-white dark:focus:bg-slate-900 transition-all font-medium"
-                />
+                <div className="flex items-center space-x-2">
+                  <button
+                    type="button"
+                    onClick={() => setYearsExperience(Math.max(0, yearsExperience - 1))}
+                    className="w-12 h-12 flex items-center justify-center bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 border border-slate-200/80 dark:border-slate-800 rounded-xl text-slate-600 dark:text-slate-300 font-bold transition-all cursor-pointer select-none"
+                  >
+                    -
+                  </button>
+                  <input
+                    type="number"
+                    required
+                    min="0"
+                    max="60"
+                    value={yearsExperience}
+                    onChange={(e) => setYearsExperience(Math.max(0, parseInt(e.target.value) || 0))}
+                    placeholder="0"
+                    className="flex-1 text-center py-3 bg-slate-50/70 dark:bg-slate-950/40 border border-slate-200/80 dark:border-slate-800 rounded-xl text-slate-700 dark:text-slate-200 text-sm focus:outline-none focus:border-teal-500 focus:bg-white dark:focus:bg-slate-900 transition-all font-semibold"
+                  />
+                  <button
+                    type="button"
+                    onClick={() => setYearsExperience(Math.min(60, yearsExperience + 1))}
+                    className="w-12 h-12 flex items-center justify-center bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 border border-slate-200/80 dark:border-slate-800 rounded-xl text-slate-600 dark:text-slate-300 font-bold transition-all cursor-pointer select-none"
+                  >
+                    +
+                  </button>
+                </div>
               </div>
             </div>
           ) : (
