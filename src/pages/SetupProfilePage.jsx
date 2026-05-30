@@ -247,6 +247,7 @@ const SetupProfilePage = () => {
 
             {step === 1 ? (
               <button
+                key="continue-btn"
                 type="button"
                 onClick={handleNext}
                 className="px-6 py-3.5 bg-teal-600 hover:bg-teal-700 text-white font-semibold text-sm rounded-xl transition-all shadow-md shadow-teal-500/10 flex items-center space-x-2 cursor-pointer shrink-0 ml-auto"
@@ -256,6 +257,7 @@ const SetupProfilePage = () => {
               </button>
             ) : (
               <button
+                key="submit-btn"
                 type="submit"
                 disabled={isSubmitting}
                 className="px-6 py-3.5 bg-teal-600 hover:bg-teal-700 disabled:bg-teal-400 text-white font-semibold text-sm rounded-xl transition-all shadow-md shadow-teal-500/10 flex items-center space-x-2 cursor-pointer shrink-0 ml-auto"
