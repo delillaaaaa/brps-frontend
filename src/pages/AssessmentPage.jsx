@@ -75,7 +75,7 @@ const AssessmentPage = () => {
 
       {/* Main Form content */}
       <main className="flex-1 overflow-y-auto px-4 md:px-10 py-6 md:py-8 text-left select-none">
-        <div className="max-w-3xl space-y-8 animate-fade-in" style={{ animation: 'fadeIn 0.3s ease-out' }}>
+        <div className=" space-y-8 animate-fade-in" style={{ animation: 'fadeIn 0.3s ease-out' }}>
           
           {/* Header section */}
           <div className="bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800/80 rounded-3xl p-6 flex items-center justify-between shadow-sm shadow-slate-100/50 dark:shadow-none">

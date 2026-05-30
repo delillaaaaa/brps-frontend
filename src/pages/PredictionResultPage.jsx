@@ -136,7 +136,7 @@ const PredictionResultPage = () => {
             </div>
           </div>
         ) : (
-          <div className="max-w-4xl space-y-8 animate-fade-in print:space-y-6" style={{ animation: 'fadeIn 0.3s ease-out' }}>
+          <div className="space-y-8 animate-fade-in print:space-y-6" style={{ animation: 'fadeIn 0.3s ease-out' }}>
             
             {/* Header / Navigation Controls */}
             <div className="flex items-center justify-between print:hidden">

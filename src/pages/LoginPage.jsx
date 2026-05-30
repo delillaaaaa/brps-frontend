@@ -76,12 +76,12 @@ const LoginPage = () => {
 
           {/* Password Input */}
           <div className="space-y-1.5">
-            <div className="flex items-center justify-between">
+            {/* <div className="flex items-center justify-between">
               <label className="text-xs font-bold text-slate-500 uppercase tracking-wider">Password</label>
               <a href="#" onClick={(e) => { e.preventDefault(); toast.info("Demo mode: Please sign up if you don't have an account"); }} className="text-xs font-semibold text-teal-600 hover:text-teal-700 cursor-pointer">
                 Forgot password?
               </a>
-            </div>
+            </div> */}
             <div className="relative">
               <Lock className="w-5 h-5 text-slate-400 absolute left-4 top-1/2 -translate-y-1/2" />
               <input
