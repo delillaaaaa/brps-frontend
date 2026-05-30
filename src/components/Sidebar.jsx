@@ -39,7 +39,7 @@ const Sidebar = () => {
     },
     {
       name: 'Profile',
-      path: '/setup-profile',
+      path: '/profile',
       icon: <User className="w-5 h-5" />,
     },
   ];

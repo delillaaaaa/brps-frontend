@@ -5,6 +5,7 @@ import LandingPage from './pages/LandingPage';
 import LoginPage from './pages/LoginPage';
 import RegisterPage from './pages/RegisterPage';
 import SetupProfilePage from './pages/SetupProfilePage';
+import ProfilePage from './pages/ProfilePage';
 import DashboardPage from './pages/DashboardPage';
 import AssessmentPage from './pages/AssessmentPage';
 import PredictionLoadingPage from './pages/PredictionLoadingPage';
@@ -19,6 +20,14 @@ function App() {
       <Route path="/register" element={<RegisterPage />} />
 
       {/* Protected Routes */}
+      <Route 
+        path="/profile" 
+        element={
+          <ProtectedRoute>
+            <ProfilePage />
+          </ProtectedRoute>
+        } 
+      />
       <Route 
         path="/setup-profile" 
         element={
