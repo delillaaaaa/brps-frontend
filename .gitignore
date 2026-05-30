@@ -12,6 +12,7 @@ dist
 dist-ssr
 *.local
 BRPS-Documentation.md
+.env
 
 # Editor directories and files
 .vscode/*
