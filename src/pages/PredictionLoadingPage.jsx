@@ -32,7 +32,12 @@ const PredictionLoadingPage = () => {
           // Wait slightly to finish the animations naturally
           setTimeout(() => {
             toast.success('AI Prediction analysis complete!');
-            navigate(`/assessment/${id}/result`);
+            navigate(`/assessment/${id}/result`, {
+              state: { 
+                ai_wellness_recommendations: response.data.data?.ai_wellness_recommendations,
+                burnout_probability_percent: response.data.data?.burnout_probability_percent
+              }
+            });
           }, 800);
         } else {
           throw new Error('Prediction execution returned empty data');

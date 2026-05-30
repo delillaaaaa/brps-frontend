@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useParams, Link, useNavigate } from 'react-router-dom';
+import { useParams, Link, useNavigate, useLocation } from 'react-router-dom';
 import Sidebar from '../components/Sidebar';
 import { useToast } from '../components/Toast';
 import api from '../services/api';
@@ -14,14 +14,22 @@ import {
   Activity
 } from 'lucide-react';
 
+const parsePercent = (pctString) => {
+  if (!pctString) return 0;
+  const num = parseFloat(pctString.replace('%', ''));
+  return isNaN(num) ? 0 : num;
+};
+
 const PredictionResultPage = () => {
   const { id } = useParams();
   const navigate = useNavigate();
+  const location = useLocation();
   const toast = useToast();
 
   const [assessment, setAssessment] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [wellnessList, setWellnessList] = useState([]);
+  const [burnoutProbabilityPercent, setBurnoutProbabilityPercent] = useState(null);
 
   useEffect(() => {
     const fetchResult = async () => {
@@ -32,34 +40,63 @@ const PredictionResultPage = () => {
           const data = response.data.data;
           setAssessment(data);
 
-          // Populate wellness recommendations based on risk score or fallbacks
-          const score = data.burnout_score || 0;
-          const label = data.burnout_label || 'Low';
-          
-          if (score >= 0.7 || label.toLowerCase().includes('tinggi') || label.toLowerCase().includes('high')) {
-            setWellnessList([
-              'Schedule a mandatory 15-minute mindfulness or deep breathing break daily.',
-              'Initiate a tasks alignment discussion with your supervisor or HR representative.',
-              'Decline non-critical overtime and set firm offline limits after work hours.',
-              'Implement a single-tasking flow and block focus times in your calendar.',
-              'Consider taking a dedicated mental health rest day to decompress.'
-            ]);
-          } else if (score >= 0.35 || label.toLowerCase().includes('sedang') || label.toLowerCase().includes('medium')) {
-            setWellnessList([
-              'Limit task multitasking to preserve attention spans and energy.',
-              'Set clear physical boundaries for remote work (e.g., closing workspace laptop at 5 PM).',
-              'Engage in 20 minutes of mild outdoor activity or brisk walking daily.',
-              'Review outstanding work items and delegate low-priority tasks.',
-              'Dedicate at least one evening each week entirely to hobbies or family time.'
-            ]);
+          // Get wellness recommendations and burnout probability percent:
+          // 1. From router state if navigated from PredictionLoadingPage
+          // 2. Fallback to calling the predict endpoint to get the values (e.g. on direct page access or refresh)
+          let recommendations = location.state?.ai_wellness_recommendations;
+          let probPercent = location.state?.burnout_probability_percent;
+
+          if (!recommendations || !probPercent) {
+            try {
+              const predictResponse = await api.post(`/api/burnout-assessments/${id}/predict`);
+              if (predictResponse.data && predictResponse.data.success) {
+                const predictData = predictResponse.data.data;
+                recommendations = predictData?.ai_wellness_recommendations;
+                probPercent = predictData?.burnout_probability_percent;
+              }
+            } catch (predictErr) {
+              console.error('Error fetching prediction recommendations fallback:', predictErr);
+            }
+          }
+
+          // Save burnout probability percentage format
+          const formattedFallback = data.burnout_score !== null && data.burnout_score !== undefined
+            ? `${Math.round(data.burnout_score * 100)}%`
+            : "0%";
+          setBurnoutProbabilityPercent(probPercent || formattedFallback);
+
+          // If we have recommendations, use them, otherwise use the previous hardcoded fallback logic
+          if (recommendations && Array.isArray(recommendations) && recommendations.length > 0) {
+            setWellnessList(recommendations);
           } else {
-            setWellnessList([
-              'Continue maintaining your excellent boundary-setting behaviors.',
-              'Incorporate active hydration habits (drink 2L water daily).',
-              'Participate in company-wide wellness activities and team socials.',
-              'Keep logging surveys weekly to monitor occupational balance shifts.',
-              'Document personal milestones and celebrate achievements.'
-            ]);
+            const label = data.burnout_label || 'Low';
+            const score = parsePercent(probPercent) / 100;
+            
+            if (score >= 0.7 || label.toLowerCase().includes('tinggi') || label.toLowerCase().includes('high')) {
+              setWellnessList([
+                'Schedule a mandatory 15-minute mindfulness or deep breathing break daily.',
+                'Initiate a tasks alignment discussion with your supervisor or HR representative.',
+                'Decline non-critical overtime and set firm offline limits after work hours.',
+                'Implement a single-tasking flow and block focus times in your calendar.',
+                'Consider taking a dedicated mental health rest day to decompress.'
+              ]);
+            } else if (score >= 0.35 || label.toLowerCase().includes('sedang') || label.toLowerCase().includes('medium')) {
+              setWellnessList([
+                'Limit task multitasking to preserve attention spans and energy.',
+                'Set clear physical boundaries for remote work (e.g., closing workspace laptop at 5 PM).',
+                'Engage in 20 minutes of mild outdoor activity or brisk walking daily.',
+                'Review outstanding work items and delegate low-priority tasks.',
+                'Dedicate at least one evening each week entirely to hobbies or family time.'
+              ]);
+            } else {
+              setWellnessList([
+                'Continue maintaining your excellent boundary-setting behaviors.',
+                'Incorporate active hydration habits (drink 2L water daily).',
+                'Participate in company-wide wellness activities and team socials.',
+                'Keep logging surveys weekly to monitor occupational balance shifts.',
+                'Document personal milestones and celebrate achievements.'
+              ]);
+            }
           }
         } else {
           throw new Error('Assessment data not retrieved');
@@ -74,7 +111,7 @@ const PredictionResultPage = () => {
     };
 
     fetchResult();
-  }, [id]);
+  }, [id, location.state]);
 
   const handlePrint = () => {
     window.print();
@@ -110,8 +147,10 @@ const PredictionResultPage = () => {
     };
   };
 
-  const risk = assessment ? getRiskDetails(assessment.burnout_score, assessment.burnout_label) : null;
-  const scorePercent = assessment ? Math.round((assessment.burnout_score || 0) * 100) : 0;
+  const scorePercent = burnoutProbabilityPercent
+    ? parsePercent(burnoutProbabilityPercent)
+    : (assessment && assessment.burnout_score !== null ? Math.round(assessment.burnout_score * 100) : 0);
+  const risk = assessment ? getRiskDetails(scorePercent / 100, assessment.burnout_label) : null;
 
   // Custom Animated SVG Gauge calculation parameters
   const radius = 70;
@@ -208,7 +247,7 @@ const PredictionResultPage = () => {
                   </svg>
                   {/* Inside Center Text */}
                   <div className="absolute text-center">
-                    <span className="block text-3xl font-extrabold text-slate-800 leading-none">{scorePercent}%</span>
+                    <span className="block text-3xl font-extrabold text-slate-800 leading-none">{burnoutProbabilityPercent || `${scorePercent}%`}</span>
                     <span className="text-[10px] text-slate-400 font-bold uppercase tracking-wider mt-1 block">Score</span>
                   </div>
                 </div>

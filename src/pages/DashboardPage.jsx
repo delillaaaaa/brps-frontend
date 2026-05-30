@@ -116,6 +116,7 @@ const DashboardPage = () => {
               </div>
               <Link
                 to="/assessment"
+                state={{ isCreating: true }}
                 className="inline-flex items-center space-x-2 px-5 py-3 bg-teal-600 hover:bg-teal-700 text-white font-semibold text-sm rounded-xl transition-all shadow-md shadow-teal-500/10 hover:shadow-teal-500/20 cursor-pointer self-start md:self-auto shrink-0"
               >
                 <Plus className="w-4 h-4" />
@@ -257,6 +258,7 @@ const DashboardPage = () => {
                   </div>
                   <Link
                     to="/assessment"
+                    state={{ isCreating: true }}
                     className="px-5 py-2.5 bg-teal-600 hover:bg-teal-700 text-white font-semibold text-xs rounded-xl shadow-md cursor-pointer transition-colors"
                   >
                     Assess Now
