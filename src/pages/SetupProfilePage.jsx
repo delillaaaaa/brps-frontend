@@ -9,7 +9,8 @@ import {
   ArrowRight, 
   ArrowLeft, 
   Check, 
-  MapPin 
+  MapPin,
+  User
 } from 'lucide-react';
 
 const SetupProfilePage = () => {
@@ -18,6 +19,7 @@ const SetupProfilePage = () => {
   const toast = useToast();
 
   const [step, setStep] = useState(1);
+  const [name, setName] = useState('');
   const [jobRole, setJobRole] = useState('');
   const [department, setDepartment] = useState('');
   const [yearsExperience, setYearsExperience] = useState(0);
@@ -29,6 +31,7 @@ const SetupProfilePage = () => {
   // Prefill profile values if they exist
   useEffect(() => {
     if (user) {
+      setName(user.name || '');
       setJobRole(user.job_role || '');
       setDepartment(user.department || '');
       setYearsExperience(user.years_experience || 0);
@@ -38,6 +41,10 @@ const SetupProfilePage = () => {
   }, [user]);
 
   const validateStep1 = () => {
+    if (!name.trim()) {
+      toast.warning('Please specify your full name');
+      return false;
+    }
     if (!jobRole.trim()) {
       toast.warning('Please specify your job role');
       return false;
@@ -72,7 +79,7 @@ const SetupProfilePage = () => {
     setIsSubmitting(true);
     try {
       const response = await api.put('/api/users/profile', {
-        name: user?.name,
+        name: name,
         birthday_date: user?.birthday_date,
         gender: user?.gender,
         job_role: jobRole,
@@ -133,6 +140,22 @@ const SetupProfilePage = () => {
         <form onSubmit={handleSubmit} className="space-y-6 text-left flex-1">
           {step === 1 ? (
             <div className="space-y-5 animate-fade-in" style={{ animation: 'fadeIn 0.25s ease-out' }}>
+              {/* Full Name Input */}
+              <div className="space-y-1.5">
+                <label className="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider">Full Name</label>
+                <div className="relative">
+                  <User className="w-5 h-5 text-slate-400 dark:text-slate-500 absolute left-4 top-1/2 -translate-y-1/2" />
+                  <input
+                    type="text"
+                    required
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
+                    placeholder="e.g. Jane Doe"
+                    className="w-full pl-12 pr-4 py-3 bg-slate-50/70 dark:bg-slate-950/40 border border-slate-200/80 dark:border-slate-800 rounded-xl text-slate-700 dark:text-slate-200 text-sm focus:outline-none focus:border-teal-500 focus:bg-white dark:focus:bg-slate-900 transition-all font-medium"
+                  />
+                </div>
+              </div>
+
               {/* Job Role Input */}
               <div className="space-y-1.5">
                 <label className="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider">Job Role / Title</label>
