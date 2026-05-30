@@ -13,6 +13,18 @@
   --color-teal-500: #01A3B0;
   --color-teal-600: #00828d;
   --color-teal-700: #0f766e;
+
+  /* Custom slate mid-tones for rich, high-fidelity light mode UI */
+  --color-slate-350: #afbcca;
+  --color-slate-450: #7f8fa4;
+  --color-slate-550: #55657e;
+  --color-slate-650: #3b485d;
+  --color-slate-655: #2f3b4e;
+  --color-slate-850: #1e293b;
+
+  /* Custom teal accent tones */
+  --color-teal-650: #0d9488;
+  --color-teal-655: #0f766e;
 }
 
 @keyframes pulse-slow {
@@ -71,6 +83,22 @@ body {
 .dark body {
   background-color: #0F172A;
   color: #F8FAFC;
+}
+
+/* Premium Contrast & Legibility Overrides for Dark Mode */
+.dark {
+  /* Redefine standard tailwind slate text colors in dark mode to be much brighter and highly legible! */
+  --color-slate-400: #cbd5e1; /* make slate-400 look like slate-300 */
+  --color-slate-500: #cbd5e1; /* make slate-500 look like slate-300 (highly legible secondary text) */
+  --color-slate-600: #f1f5f9; /* make slate-600 look like slate-100 (highly legible body text) */
+  --color-slate-700: #ffffff; /* make slate-700 look like white */
+
+  /* Redefine custom slate mid-tones to be highly visible against deep dark background */
+  --color-slate-350: #cbd5e1; /* slate-300 */
+  --color-slate-450: #e2e8f0; /* slate-200 */
+  --color-slate-550: #cbd5e1; /* slate-300 */
+  --color-slate-650: #f1f5f9; /* slate-100 */
+  --color-slate-655: #ffffff; /* white */
 }
 
 /* Custom premium scrollbar */

@@ -37,20 +37,20 @@ const LoginPage = () => {
   };
 
   return (
-    <div className="min-h-screen bg-slate-50 flex items-center justify-center p-6 relative overflow-hidden select-none">
+    <div className="min-h-screen bg-slate-50 dark:bg-slate-950 flex items-center justify-center p-6 relative overflow-hidden select-none">
       {/* Background radial elements */}
       <div className="absolute -top-40 -right-40 w-96 h-96 rounded-full bg-teal-500/5 blur-3xl" />
       <div className="absolute -bottom-40 -left-40 w-96 h-96 rounded-full bg-blue-500/5 blur-3xl" />
 
-      <div className="max-w-md w-full bg-white border border-slate-100 rounded-3xl p-8 shadow-xl shadow-slate-100 relative z-10 flex flex-col">
+      <div className="max-w-md w-full bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800/80 rounded-3xl p-8 shadow-xl shadow-slate-100 dark:shadow-none relative z-10 flex flex-col">
         {/* Logo Header */}
         <div className="flex flex-col items-center space-y-3 mb-8">
-          <Link to="/" className="w-12 h-12 rounded-2xl bg-teal-50 flex items-center justify-center text-teal-600 shadow-inner">
+          <Link to="/" className="w-12 h-12 rounded-2xl bg-teal-50 dark:bg-teal-950/40 flex items-center justify-center text-teal-600 dark:text-teal-400 shadow-inner">
             <Activity className="w-6 h-6 animate-pulse" />
           </Link>
           <div className="text-center space-y-1">
-            <h2 className="text-2xl font-bold text-slate-800 tracking-tight">Sign In</h2>
-            <p className="text-xs text-slate-400 font-semibold uppercase tracking-wider">
+            <h2 className="text-2xl font-bold text-slate-800 dark:text-slate-100 tracking-tight">Sign In</h2>
+            <p className="text-xs text-slate-400 dark:text-slate-500 font-semibold uppercase tracking-wider">
               Burnout Risk Prediction System
             </p>
           </div>
@@ -60,42 +60,36 @@ const LoginPage = () => {
         <form onSubmit={handleSubmit} className="space-y-5 text-left">
           {/* Email Input */}
           <div className="space-y-1.5">
-            <label className="text-xs font-bold text-slate-500 uppercase tracking-wider">Email Address</label>
+            <label className="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider">Email Address</label>
             <div className="relative">
-              <Mail className="w-5 h-5 text-slate-400 absolute left-4 top-1/2 -translate-y-1/2" />
+              <Mail className="w-5 h-5 text-slate-400 dark:text-slate-500 absolute left-4 top-1/2 -translate-y-1/2" />
               <input
                 type="email"
                 required
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="user@example.com"
-                className="w-full pl-12 pr-4 py-3 bg-slate-50/70 border border-slate-200/80 rounded-xl text-slate-700 text-sm focus:outline-none focus:border-teal-500 focus:bg-white transition-all font-medium"
+                className="w-full pl-12 pr-4 py-3 bg-slate-50/70 dark:bg-slate-950/40 border border-slate-200/80 dark:border-slate-800 rounded-xl text-slate-700 dark:text-slate-200 text-sm focus:outline-none focus:border-teal-500 focus:bg-white dark:focus:bg-slate-900 transition-all font-medium"
               />
             </div>
           </div>
 
           {/* Password Input */}
           <div className="space-y-1.5">
-            {/* <div className="flex items-center justify-between">
-              <label className="text-xs font-bold text-slate-500 uppercase tracking-wider">Password</label>
-              <a href="#" onClick={(e) => { e.preventDefault(); toast.info("Demo mode: Please sign up if you don't have an account"); }} className="text-xs font-semibold text-teal-600 hover:text-teal-700 cursor-pointer">
-                Forgot password?
-              </a>
-            </div> */}
             <div className="relative">
-              <Lock className="w-5 h-5 text-slate-400 absolute left-4 top-1/2 -translate-y-1/2" />
+              <Lock className="w-5 h-5 text-slate-400 dark:text-slate-500 absolute left-4 top-1/2 -translate-y-1/2" />
               <input
                 type={showPassword ? 'text' : 'password'}
                 required
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 placeholder="••••••••••••"
-                className="w-full pl-12 pr-12 py-3 bg-slate-50/70 border border-slate-200/80 rounded-xl text-slate-700 text-sm focus:outline-none focus:border-teal-500 focus:bg-white transition-all font-medium"
+                className="w-full pl-12 pr-12 py-3 bg-slate-50/70 dark:bg-slate-950/40 border border-slate-200/80 dark:border-slate-800 rounded-xl text-slate-700 dark:text-slate-200 text-sm focus:outline-none focus:border-teal-500 focus:bg-white dark:focus:bg-slate-900 transition-all font-medium"
               />
               <button
                 type="button"
                 onClick={() => setShowPassword(!showPassword)}
-                className="absolute right-4 top-1/2 -translate-y-1/2 p-1 text-slate-400 hover:text-slate-600 transition-colors cursor-pointer"
+                className="absolute right-4 top-1/2 -translate-y-1/2 p-1 text-slate-400 hover:text-slate-600 dark:hover:text-slate-300 transition-colors cursor-pointer"
               >
                 {showPassword ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
               </button>
@@ -120,10 +114,10 @@ const LoginPage = () => {
         </form>
 
         {/* Navigation to Signup */}
-        <div className="mt-8 pt-6 border-t border-slate-50 text-center">
-          <p className="text-sm text-slate-500">
+        <div className="mt-8 pt-6 border-t border-slate-50 dark:border-slate-800 text-center">
+          <p className="text-sm text-slate-550 dark:text-slate-400">
             Don't have an account yet?{' '}
-            <Link to="/register" className="font-semibold text-teal-600 hover:text-teal-700 cursor-pointer">
+            <Link to="/register" className="font-semibold text-teal-600 dark:text-teal-400 hover:text-teal-700 dark:hover:text-teal-350 cursor-pointer">
               Register here
             </Link>
           </p>

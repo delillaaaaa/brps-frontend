@@ -308,7 +308,7 @@ const AssessmentPage = () => {
                 <button
                   type="button"
                   onClick={() => setIsCreating(false)}
-                  className="px-5 py-3.5 bg-white border border-slate-200 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-850 text-slate-500 dark:text-slate-400 font-bold text-xs rounded-xl cursor-pointer transition-colors shadow-sm"
+                  className="px-5 py-3.5 bg-white border border-slate-200 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-200 text-slate-500 dark:text-slate-800 font-bold text-xs rounded-xl cursor-pointer transition-colors shadow-sm"
                 >
                   Cancel
                 </button>

@@ -97,34 +97,34 @@ const SetupProfilePage = () => {
   };
 
   return (
-    <div className="min-h-screen bg-slate-50 flex items-center justify-center p-6 select-none relative overflow-hidden">
+    <div className="min-h-screen bg-slate-50 dark:bg-slate-950 flex items-center justify-center p-6 select-none relative overflow-hidden">
       {/* Decorative gradients */}
       <div className="absolute -top-40 -right-40 w-96 h-96 rounded-full bg-teal-500/5 blur-3xl" />
       <div className="absolute -bottom-40 -left-40 w-96 h-96 rounded-full bg-blue-500/5 blur-3xl" />
 
-      <div className="max-w-xl w-full bg-white border border-slate-100 rounded-3xl shadow-xl shadow-slate-100 p-8 relative z-10 flex flex-col">
+      <div className="max-w-xl w-full bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800/80 rounded-3xl shadow-xl shadow-slate-100 dark:shadow-none p-8 relative z-10 flex flex-col">
         {/* Step Indicator Headers */}
         <div className="flex items-center justify-between mb-8">
           <div className="flex items-center space-x-2">
-            <span className={`w-8 h-8 rounded-xl font-bold flex items-center justify-center text-sm transition-all duration-300 ${step >= 1 ? 'bg-teal-600 text-white shadow-md shadow-teal-500/20' : 'bg-slate-100 text-slate-400'}`}>
+            <span className={`w-8 h-8 rounded-xl font-bold flex items-center justify-center text-sm transition-all duration-300 ${step >= 1 ? 'bg-teal-600 text-white shadow-md shadow-teal-500/20' : 'bg-slate-100 dark:bg-slate-800 text-slate-400 dark:text-slate-500'}`}>
               {step > 1 ? <Check className="w-4 h-4" /> : '1'}
             </span>
-            <span className={`text-sm font-semibold tracking-wide transition-colors duration-300 ${step >= 1 ? 'text-teal-700' : 'text-slate-400'}`}>Professional</span>
+            <span className={`text-sm font-semibold tracking-wide transition-colors duration-300 ${step >= 1 ? 'text-teal-700 dark:text-teal-400' : 'text-slate-400 dark:text-slate-500'}`}>Professional</span>
           </div>
-          <div className="flex-1 h-0.5 mx-4 bg-slate-100 relative overflow-hidden rounded-full">
+          <div className="flex-1 h-0.5 mx-4 bg-slate-100 dark:bg-slate-800 relative overflow-hidden rounded-full">
             <div className="absolute inset-y-0 left-0 bg-teal-500 transition-all duration-300" style={{ width: step === 1 ? '0%' : '100%' }} />
           </div>
           <div className="flex items-center space-x-2">
-            <span className={`w-8 h-8 rounded-xl font-bold flex items-center justify-center text-sm transition-all duration-300 ${step === 2 ? 'bg-teal-600 text-white shadow-md shadow-teal-500/20' : 'bg-slate-100 text-slate-400'}`}>
+            <span className={`w-8 h-8 rounded-xl font-bold flex items-center justify-center text-sm transition-all duration-300 ${step === 2 ? 'bg-teal-600 text-white shadow-md shadow-teal-500/20' : 'bg-slate-100 dark:bg-slate-800 text-slate-400 dark:text-slate-500'}`}>
               2
             </span>
-            <span className={`text-sm font-semibold tracking-wide transition-colors duration-300 ${step === 2 ? 'text-teal-700' : 'text-slate-400'}`}>Work Habits</span>
+            <span className={`text-sm font-semibold tracking-wide transition-colors duration-300 ${step === 2 ? 'text-teal-700 dark:text-teal-400' : 'text-slate-400 dark:text-slate-500'}`}>Work Habits</span>
           </div>
         </div>
 
         <div className="text-left space-y-1 mb-8">
-          <h2 className="text-2xl font-bold text-slate-800 tracking-tight">Complete Work Profile</h2>
-          <p className="text-sm text-slate-400">
+          <h2 className="text-2xl font-bold text-slate-800 dark:text-slate-100 tracking-tight">Complete Work Profile</h2>
+          <p className="text-sm text-slate-400 dark:text-slate-500">
             Tell us about your current occupation to calibrate our AI burnout risk metrics.
           </p>
         </div>
@@ -135,39 +135,39 @@ const SetupProfilePage = () => {
             <div className="space-y-5 animate-fade-in" style={{ animation: 'fadeIn 0.25s ease-out' }}>
               {/* Job Role Input */}
               <div className="space-y-1.5">
-                <label className="text-xs font-bold text-slate-500 uppercase tracking-wider">Job Role / Title</label>
+                <label className="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider">Job Role / Title</label>
                 <div className="relative">
-                  <Briefcase className="w-5 h-5 text-slate-400 absolute left-4 top-1/2 -translate-y-1/2" />
+                  <Briefcase className="w-5 h-5 text-slate-400 dark:text-slate-500 absolute left-4 top-1/2 -translate-y-1/2" />
                   <input
                     type="text"
                     required
                     value={jobRole}
                     onChange={(e) => setJobRole(e.target.value)}
                     placeholder="e.g. Senior Software Engineer"
-                    className="w-full pl-12 pr-4 py-3 bg-slate-50/70 border border-slate-200/80 rounded-xl text-slate-700 text-sm focus:outline-none focus:border-teal-500 focus:bg-white transition-all font-medium"
+                    className="w-full pl-12 pr-4 py-3 bg-slate-50/70 dark:bg-slate-950/40 border border-slate-200/80 dark:border-slate-800 rounded-xl text-slate-700 dark:text-slate-200 text-sm focus:outline-none focus:border-teal-500 focus:bg-white dark:focus:bg-slate-900 transition-all font-medium"
                   />
                 </div>
               </div>
 
               {/* Department Input */}
               <div className="space-y-1.5">
-                <label className="text-xs font-bold text-slate-500 uppercase tracking-wider">Department</label>
+                <label className="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider">Department</label>
                 <div className="relative">
-                  <MapPin className="w-5 h-5 text-slate-400 absolute left-4 top-1/2 -translate-y-1/2" />
+                  <MapPin className="w-5 h-5 text-slate-400 dark:text-slate-500 absolute left-4 top-1/2 -translate-y-1/2" />
                   <input
                     type="text"
                     required
                     value={department}
                     onChange={(e) => setDepartment(e.target.value)}
                     placeholder="e.g. Engineering / Product"
-                    className="w-full pl-12 pr-4 py-3 bg-slate-50/70 border border-slate-200/80 rounded-xl text-slate-700 text-sm focus:outline-none focus:border-teal-500 focus:bg-white transition-all font-medium"
+                    className="w-full pl-12 pr-4 py-3 bg-slate-50/70 dark:bg-slate-950/40 border border-slate-200/80 dark:border-slate-800 rounded-xl text-slate-700 dark:text-slate-200 text-sm focus:outline-none focus:border-teal-500 focus:bg-white dark:focus:bg-slate-900 transition-all font-medium"
                   />
                 </div>
               </div>
 
               {/* Years Experience Input */}
               <div className="space-y-1.5">
-                <label className="text-xs font-bold text-slate-500 uppercase tracking-wider">Years of Experience</label>
+                <label className="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider">Years of Experience</label>
                 <input
                   type="number"
                   required
@@ -176,7 +176,7 @@ const SetupProfilePage = () => {
                   value={yearsExperience}
                   onChange={(e) => setYearsExperience(Math.max(0, parseInt(e.target.value) || 0))}
                   placeholder="e.g. 5"
-                  className="w-full px-4 py-3 bg-slate-50/70 border border-slate-200/80 rounded-xl text-slate-700 text-sm focus:outline-none focus:border-teal-500 focus:bg-white transition-all font-medium"
+                  className="w-full px-4 py-3 bg-slate-50/70 dark:bg-slate-950/40 border border-slate-200/80 dark:border-slate-800 rounded-xl text-slate-700 dark:text-slate-200 text-sm focus:outline-none focus:border-teal-500 focus:bg-white dark:focus:bg-slate-900 transition-all font-medium"
                 />
               </div>
             </div>
@@ -185,11 +185,11 @@ const SetupProfilePage = () => {
               {/* Work Hours Slider */}
               <div className="space-y-3">
                 <div className="flex items-center justify-between">
-                  <label className="text-xs font-bold text-slate-500 uppercase tracking-wider">Weekly Work Hours</label>
-                  <span className="text-sm font-bold text-teal-600 bg-teal-50 px-2.5 py-1 rounded-lg">{workHours} hrs / week</span>
+                  <label className="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider">Weekly Work Hours</label>
+                  <span className="text-sm font-bold text-teal-600 dark:text-teal-400 bg-teal-50 dark:bg-teal-950/40 px-2.5 py-1 rounded-lg">{workHours} hrs / week</span>
                 </div>
                 <div className="flex items-center space-x-3">
-                  <Clock className="w-5 h-5 text-slate-400 shrink-0" />
+                  <Clock className="w-5 h-5 text-slate-400 dark:text-slate-500 shrink-0" />
                   <input
                     type="range"
                     min="10"
@@ -197,20 +197,20 @@ const SetupProfilePage = () => {
                     step="1"
                     value={workHours}
                     onChange={(e) => setWorkHours(parseInt(e.target.value))}
-                    className="w-full h-2 bg-slate-100 rounded-lg appearance-none cursor-pointer accent-teal-600"
+                    className="w-full h-2 bg-slate-100 dark:bg-slate-800 rounded-lg appearance-none cursor-pointer accent-teal-600"
                   />
                 </div>
-                <p className="text-[10px] text-slate-400 font-medium">Standard full-time is usually 40 hours.</p>
+                <p className="text-[10px] text-slate-400 dark:text-slate-500 font-medium">Standard full-time is usually 40 hours.</p>
               </div>
 
               {/* Remote Ratio Slider */}
               <div className="space-y-3">
                 <div className="flex items-center justify-between">
-                  <label className="text-xs font-bold text-slate-500 uppercase tracking-wider">Remote Work Ratio</label>
-                  <span className="text-sm font-bold text-teal-600 bg-teal-50 px-2.5 py-1 rounded-lg">{Math.round(remoteRatio * 100)}% Remote</span>
+                  <label className="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider">Remote Work Ratio</label>
+                  <span className="text-sm font-bold text-teal-600 dark:text-teal-400 bg-teal-50 dark:bg-teal-950/40 px-2.5 py-1 rounded-lg">{Math.round(remoteRatio * 100)}% Remote</span>
                 </div>
                 <div className="flex items-center space-x-3">
-                  <Briefcase className="w-5 h-5 text-slate-400 shrink-0" />
+                  <Briefcase className="w-5 h-5 text-slate-400 dark:text-slate-500 shrink-0" />
                   <input
                     type="range"
                     min="0"
@@ -218,10 +218,10 @@ const SetupProfilePage = () => {
                     step="0.1"
                     value={remoteRatio}
                     onChange={(e) => setRemoteRatio(parseFloat(e.target.value))}
-                    className="w-full h-2 bg-slate-100 rounded-lg appearance-none cursor-pointer accent-teal-600"
+                    className="w-full h-2 bg-slate-100 dark:bg-slate-800 rounded-lg appearance-none cursor-pointer accent-teal-600"
                   />
                 </div>
-                <div className="flex items-center justify-between text-[10px] text-slate-400 font-semibold px-1">
+                <div className="flex items-center justify-between text-[10px] text-slate-400 dark:text-slate-500 font-semibold px-1">
                   <span>0% (On-site)</span>
                   <span>50% (Hybrid)</span>
                   <span>100% (Fully Remote)</span>
@@ -231,12 +231,12 @@ const SetupProfilePage = () => {
           )}
 
           {/* Action Buttons */}
-          <div className="flex items-center justify-between pt-6 border-t border-slate-50">
+          <div className="flex items-center justify-between pt-6 border-t border-slate-50 dark:border-slate-850">
             {step === 2 ? (
               <button
                 type="button"
                 onClick={handleBack}
-                className="px-5 py-3 border border-slate-200 hover:bg-slate-50 text-slate-600 font-semibold text-sm rounded-xl transition-all flex items-center space-x-2 cursor-pointer shrink-0"
+                className="px-5 py-3 border border-slate-200 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-800 text-slate-600 dark:text-slate-400 font-semibold text-sm rounded-xl transition-all flex items-center space-x-2 cursor-pointer shrink-0"
               >
                 <ArrowLeft className="w-4 h-4" />
                 <span>Back</span>

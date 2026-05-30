@@ -138,11 +138,11 @@ const DashboardPage = () => {
                   <div className="grid grid-cols-2 gap-4 pt-2">
                     <div className="p-3 bg-slate-50 dark:bg-slate-950/40 rounded-2xl border border-slate-100 dark:border-slate-850">
                       <span className="text-[10px] font-bold text-slate-400 dark:text-slate-550 uppercase tracking-wider block">Experience</span>
-                      <span className="text-base font-extrabold text-slate-800 dark:text-slate-250">{profile?.years_experience || 0} years</span>
+                      <span className="text-base font-extrabold text-slate-800 dark:text-slate-200">{profile?.years_experience || 0} years</span>
                     </div>
                     <div className="p-3 bg-slate-50 dark:bg-slate-950/40 rounded-2xl border border-slate-100 dark:border-slate-850">
                       <span className="text-[10px] font-bold text-slate-400 dark:text-slate-550 uppercase tracking-wider block">Remote Setup</span>
-                      <span className="text-base font-extrabold text-slate-800 dark:text-slate-250">{profile?.remote_ratio !== undefined ? Math.round(profile.remote_ratio * 100) : 50}%</span>
+                      <span className="text-base font-extrabold text-slate-800 dark:text-slate-200">{profile?.remote_ratio !== undefined ? Math.round(profile.remote_ratio * 100) : 50}%</span>
                     </div>
                   </div>
                 </div>

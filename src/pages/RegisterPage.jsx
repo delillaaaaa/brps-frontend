@@ -41,20 +41,20 @@ const RegisterPage = () => {
   };
 
   return (
-    <div className="min-h-screen bg-slate-50 flex items-center justify-center p-6 relative overflow-hidden select-none">
+    <div className="min-h-screen bg-slate-50 dark:bg-slate-950 flex items-center justify-center p-6 relative overflow-hidden select-none">
       {/* Background patterns */}
       <div className="absolute -top-40 -right-40 w-96 h-96 rounded-full bg-teal-500/5 blur-3xl" />
       <div className="absolute -bottom-40 -left-40 w-96 h-96 rounded-full bg-blue-500/5 blur-3xl" />
 
-      <div className="max-w-md w-full bg-white border border-slate-100 rounded-3xl p-8 shadow-xl shadow-slate-100 relative z-10 flex flex-col my-8">
+      <div className="max-w-md w-full bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800/80 rounded-3xl p-8 shadow-xl shadow-slate-100 dark:shadow-none relative z-10 flex flex-col my-8">
         {/* Logo Header */}
         <div className="flex flex-col items-center space-y-3 mb-8">
-          <Link to="/" className="w-12 h-12 rounded-2xl bg-teal-50 flex items-center justify-center text-teal-600 shadow-inner">
+          <Link to="/" className="w-12 h-12 rounded-2xl bg-teal-50 dark:bg-teal-950/40 flex items-center justify-center text-teal-600 dark:text-teal-400 shadow-inner">
             <Activity className="w-6 h-6 animate-pulse" />
           </Link>
           <div className="text-center space-y-1">
-            <h2 className="text-2xl font-bold text-slate-800 tracking-tight">Create Account</h2>
-            <p className="text-xs text-slate-400 font-semibold uppercase tracking-wider">
+            <h2 className="text-2xl font-bold text-slate-800 dark:text-slate-100 tracking-tight">Create Account</h2>
+            <p className="text-xs text-slate-400 dark:text-slate-500 font-semibold uppercase tracking-wider">
               Burnout Risk Prediction System
             </p>
           </div>
@@ -64,83 +64,83 @@ const RegisterPage = () => {
         <form onSubmit={handleSubmit} className="space-y-4 text-left">
           {/* Full Name Input */}
           <div className="space-y-1.5">
-            <label className="text-xs font-bold text-slate-500 uppercase tracking-wider">Full Name</label>
+            <label className="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider">Full Name</label>
             <div className="relative">
-              <User className="w-5 h-5 text-slate-400 absolute left-4 top-1/2 -translate-y-1/2" />
+              <User className="w-5 h-5 text-slate-400 dark:text-slate-500 absolute left-4 top-1/2 -translate-y-1/2" />
               <input
                 type="text"
                 required
                 value={name}
                 onChange={(e) => setName(e.target.value)}
                 placeholder="Jane Doe"
-                className="w-full pl-12 pr-4 py-2.5 bg-slate-50/70 border border-slate-200/80 rounded-xl text-slate-700 text-sm focus:outline-none focus:border-teal-500 focus:bg-white transition-all font-medium"
+                className="w-full pl-12 pr-4 py-2.5 bg-slate-50/70 dark:bg-slate-950/40 border border-slate-200/80 dark:border-slate-800 rounded-xl text-slate-700 dark:text-slate-200 text-sm focus:outline-none focus:border-teal-500 focus:bg-white dark:focus:bg-slate-900 transition-all font-medium"
               />
             </div>
           </div>
 
           {/* Email Input */}
           <div className="space-y-1.5">
-            <label className="text-xs font-bold text-slate-500 uppercase tracking-wider">Email Address</label>
+            <label className="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider">Email Address</label>
             <div className="relative">
-              <Mail className="w-5 h-5 text-slate-400 absolute left-4 top-1/2 -translate-y-1/2" />
+              <Mail className="w-5 h-5 text-slate-400 dark:text-slate-500 absolute left-4 top-1/2 -translate-y-1/2" />
               <input
                 type="email"
                 required
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="jane.doe@example.com"
-                className="w-full pl-12 pr-4 py-2.5 bg-slate-50/70 border border-slate-200/80 rounded-xl text-slate-700 text-sm focus:outline-none focus:border-teal-500 focus:bg-white transition-all font-medium"
+                className="w-full pl-12 pr-4 py-2.5 bg-slate-50/70 dark:bg-slate-950/40 border border-slate-200/80 dark:border-slate-800 rounded-xl text-slate-700 dark:text-slate-200 text-sm focus:outline-none focus:border-teal-500 focus:bg-white dark:focus:bg-slate-900 transition-all font-medium"
               />
             </div>
           </div>
 
           {/* Password Input */}
           <div className="space-y-1.5">
-            <label className="text-xs font-bold text-slate-500 uppercase tracking-wider">Password</label>
+            <label className="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider">Password</label>
             <div className="relative">
-              <Lock className="w-5 h-5 text-slate-400 absolute left-4 top-1/2 -translate-y-1/2" />
+              <Lock className="w-5 h-5 text-slate-400 dark:text-slate-500 absolute left-4 top-1/2 -translate-y-1/2" />
               <input
                 type="password"
                 required
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 placeholder="Min. 6 characters"
-                className="w-full pl-12 pr-4 py-2.5 bg-slate-50/70 border border-slate-200/80 rounded-xl text-slate-700 text-sm focus:outline-none focus:border-teal-500 focus:bg-white transition-all font-medium"
+                className="w-full pl-12 pr-4 py-2.5 bg-slate-50/70 dark:bg-slate-950/40 border border-slate-200/80 dark:border-slate-800 rounded-xl text-slate-700 dark:text-slate-200 text-sm focus:outline-none focus:border-teal-500 focus:bg-white dark:focus:bg-slate-900 transition-all font-medium"
               />
             </div>
           </div>
 
           {/* Birthday Input */}
           <div className="space-y-1.5">
-            <label className="text-xs font-bold text-slate-500 uppercase tracking-wider">Birthday Date</label>
+            <label className="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider">Birthday Date</label>
             <div className="relative">
-              <Calendar className="w-5 h-5 text-slate-400 absolute left-4 top-1/2 -translate-y-1/2" />
+              <Calendar className="w-5 h-5 text-slate-400 dark:text-slate-500 absolute left-4 top-1/2 -translate-y-1/2" />
               <input
                 type="date"
                 required
                 value={birthdayDate}
                 onChange={(e) => setBirthdayDate(e.target.value)}
-                className="w-full pl-12 pr-4 py-2.5 bg-slate-50/70 border border-slate-200/80 rounded-xl text-slate-700 text-sm focus:outline-none focus:border-teal-500 focus:bg-white transition-all font-medium"
+                className="w-full pl-12 pr-4 py-2.5 bg-slate-50/70 dark:bg-slate-950/40 border border-slate-200/80 dark:border-slate-800 rounded-xl text-slate-700 dark:text-slate-200 text-sm focus:outline-none focus:border-teal-500 focus:bg-white dark:focus:bg-slate-900 transition-all font-medium"
               />
             </div>
           </div>
 
           {/* Gender Input */}
           <div className="space-y-1.5">
-            <label className="text-xs font-bold text-slate-500 uppercase tracking-wider">Gender</label>
+            <label className="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider">Gender</label>
             <div className="relative">
-              <Users className="w-5 h-5 text-slate-400 absolute left-4 top-1/2 -translate-y-1/2" />
+              <Users className="w-5 h-5 text-slate-400 dark:text-slate-500 absolute left-4 top-1/2 -translate-y-1/2" />
               <select
                 required
                 value={gender}
                 onChange={(e) => setGender(e.target.value)}
-                className="w-full pl-12 pr-4 py-2.5 bg-slate-50/70 border border-slate-200/80 rounded-xl text-slate-700 text-sm focus:outline-none focus:border-teal-500 focus:bg-white transition-all font-medium appearance-none cursor-pointer"
+                className="w-full pl-12 pr-4 py-2.5 bg-slate-50/70 dark:bg-slate-950/40 border border-slate-200/80 dark:border-slate-800 rounded-xl text-slate-700 dark:text-slate-200 text-sm focus:outline-none focus:border-teal-500 focus:bg-white dark:focus:bg-slate-900 transition-all font-medium appearance-none cursor-pointer"
               >
                 <option value="" disabled>Select Gender</option>
                 <option value="male">Male</option>
                 <option value="female">Female</option>
               </select>
-              <div className="pointer-events-none absolute inset-y-0 right-4 flex items-center text-slate-400">
+              <div className="pointer-events-none absolute inset-y-0 right-4 flex items-center text-slate-400 dark:text-slate-500">
                 <svg className="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
                   <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
                 </svg>
@@ -166,10 +166,10 @@ const RegisterPage = () => {
         </form>
 
         {/* Navigation to Login */}
-        <div className="mt-6 pt-6 border-t border-slate-50 text-center">
-          <p className="text-sm text-slate-500">
+        <div className="mt-6 pt-6 border-t border-slate-50 dark:border-slate-800 text-center">
+          <p className="text-sm text-slate-550 dark:text-slate-400">
             Already have an account?{' '}
-            <Link to="/login" className="font-semibold text-teal-600 hover:text-teal-700 cursor-pointer">
+            <Link to="/login" className="font-semibold text-teal-600 dark:text-teal-400 hover:text-teal-700 dark:hover:text-teal-350 cursor-pointer">
               Login here
             </Link>
           </p>

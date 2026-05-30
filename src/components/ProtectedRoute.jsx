@@ -8,13 +8,13 @@ const ProtectedRoute = ({ children }) => {
 
   if (isLoading) {
     return (
-      <div className="min-h-screen flex flex-col items-center justify-center bg-slate-50">
+      <div className="min-h-screen flex flex-col items-center justify-center bg-slate-50 dark:bg-slate-950 transition-colors duration-300">
         <div className="flex flex-col items-center space-y-4">
           <div className="relative w-16 h-16">
-            <div className="absolute inset-0 rounded-full border-4 border-teal-100 animate-pulse"></div>
+            <div className="absolute inset-0 rounded-full border-4 border-teal-100 dark:border-teal-900/30 animate-pulse"></div>
             <div className="absolute inset-0 rounded-full border-4 border-t-teal-500 animate-spin"></div>
           </div>
-          <p className="text-slate-500 font-medium text-sm animate-pulse-slow">
+          <p className="text-slate-500 dark:text-slate-400 font-medium text-sm animate-pulse-slow">
             Securing your session...
           </p>
         </div>
