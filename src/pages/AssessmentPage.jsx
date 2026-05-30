@@ -53,11 +53,11 @@ const AssessmentPage = () => {
   };
 
   const satisfactions = [
-    { value: 1, label: 'Dissatisfied', icon: <Angry className="w-6 h-6 text-rose-500" />, bg: 'hover:bg-rose-50 hover:border-rose-300', activeBg: 'bg-rose-50 border-rose-400 text-rose-700' },
-    { value: 2, label: 'Unsatisfied', icon: <Frown className="w-6 h-6 text-amber-500" />, bg: 'hover:bg-amber-50 hover:border-amber-300', activeBg: 'bg-amber-50 border-amber-400 text-amber-700' },
-    { value: 3, label: 'Neutral', icon: <Meh className="w-6 h-6 text-slate-400" />, bg: 'hover:bg-slate-50 hover:border-slate-300', activeBg: 'bg-slate-50 border-slate-400 text-slate-700' },
-    { value: 4, label: 'Satisfied', icon: <Smile className="w-6 h-6 text-teal-500" />, bg: 'hover:bg-teal-50 hover:border-teal-300', activeBg: 'bg-teal-50 border-teal-400 text-teal-700' },
-    { value: 5, label: 'Delighted', icon: <Laugh className="w-6 h-6 text-emerald-500" />, bg: 'hover:bg-emerald-50 hover:border-emerald-300', activeBg: 'bg-emerald-50 border-emerald-400 text-emerald-700' },
+    { value: 1, label: 'Dissatisfied', icon: <Angry className="w-6 h-6 text-rose-500" />, bg: 'hover:bg-rose-50 dark:hover:bg-rose-950/20 hover:border-rose-300 dark:hover:border-rose-900/50 text-slate-500 dark:text-slate-400', activeBg: 'bg-rose-50 dark:bg-rose-950/30 border-rose-400 dark:border-rose-900 text-rose-700 dark:text-rose-450' },
+    { value: 2, label: 'Unsatisfied', icon: <Frown className="w-6 h-6 text-amber-500" />, bg: 'hover:bg-amber-50 dark:hover:bg-amber-950/20 hover:border-amber-300 dark:hover:border-amber-900/50 text-slate-500 dark:text-slate-400', activeBg: 'bg-amber-50 dark:bg-amber-950/30 border-amber-400 dark:border-amber-900 text-amber-700 dark:text-amber-400' },
+    { value: 3, label: 'Neutral', icon: <Meh className="w-6 h-6 text-slate-400 dark:text-slate-550" />, bg: 'hover:bg-slate-50 dark:hover:bg-slate-800/50 hover:border-slate-300 dark:hover:border-slate-800 text-slate-500 dark:text-slate-400', activeBg: 'bg-slate-50 dark:bg-slate-850 border-slate-400 dark:border-slate-700 text-slate-700 dark:text-slate-200' },
+    { value: 4, label: 'Satisfied', icon: <Smile className="w-6 h-6 text-teal-500" />, bg: 'hover:bg-teal-50 dark:hover:bg-teal-950/20 hover:border-teal-300 dark:hover:border-teal-900/50 text-slate-500 dark:text-slate-400', activeBg: 'bg-teal-50 dark:bg-teal-950/30 border-teal-400 dark:border-teal-900 text-teal-700 dark:text-teal-450' },
+    { value: 5, label: 'Delighted', icon: <Laugh className="w-6 h-6 text-emerald-500" />, bg: 'hover:bg-emerald-50 dark:hover:bg-emerald-950/20 hover:border-emerald-300 dark:hover:border-emerald-900/50 text-slate-500 dark:text-slate-400', activeBg: 'bg-emerald-50 dark:bg-emerald-950/30 border-emerald-400 dark:border-emerald-900 text-emerald-700 dark:text-emerald-400' },
   ];
 
   const balances = [
@@ -69,7 +69,7 @@ const AssessmentPage = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-slate-50/50 flex flex-col md:flex-row">
+    <div className="min-h-screen bg-slate-50/50 dark:bg-slate-950 flex flex-col md:flex-row">
       {/* Sidebar navigation */}
       <Sidebar />
 
@@ -78,12 +78,12 @@ const AssessmentPage = () => {
         <div className="max-w-3xl space-y-8 animate-fade-in" style={{ animation: 'fadeIn 0.3s ease-out' }}>
           
           {/* Header section */}
-          <div className="bg-white border border-slate-100 rounded-3xl p-6 flex items-center justify-between shadow-sm shadow-slate-100/50">
+          <div className="bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800/80 rounded-3xl p-6 flex items-center justify-between shadow-sm shadow-slate-100/50 dark:shadow-none">
             <div className="space-y-1.5">
-              <h1 className="text-2xl font-bold text-slate-800 tracking-tight">Wellness Survey</h1>
-              <p className="text-sm text-slate-400 font-medium">Evaluate your cognitive stress levels and job fatigue parameters.</p>
+              <h1 className="text-2xl font-bold text-slate-800 dark:text-slate-100 tracking-tight">Wellness Survey</h1>
+              <p className="text-sm text-slate-400 dark:text-slate-500 font-medium">Evaluate your cognitive stress levels and job fatigue parameters.</p>
             </div>
-            <div className="w-10 h-10 rounded-xl bg-teal-50 flex items-center justify-center text-teal-600 shadow-sm shrink-0">
+            <div className="w-10 h-10 rounded-xl bg-teal-50 dark:bg-teal-950/40 flex items-center justify-center text-teal-655 dark:text-teal-400 shadow-sm shrink-0">
               <Sparkles className="w-5 h-5 animate-pulse" />
             </div>
           </div>
@@ -91,21 +91,21 @@ const AssessmentPage = () => {
           <form onSubmit={handleSubmit} className="space-y-6">
             
             {/* Input 1: Stress levels */}
-            <div className="bg-white border border-slate-100 rounded-3xl p-6 shadow-sm shadow-slate-100/50 space-y-4">
+            <div className="bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800/80 rounded-3xl p-6 shadow-sm shadow-slate-100/50 dark:shadow-none space-y-4">
               <div className="flex items-center justify-between">
                 <div className="space-y-0.5">
-                  <h3 className="font-bold text-slate-700 text-sm flex items-center space-x-1.5">
+                  <h3 className="font-bold text-slate-700 dark:text-slate-200 text-sm flex items-center space-x-1.5">
                     <span>1. Daily Stress Index</span>
-                    <HelpCircle className="w-4 h-4 text-slate-300" />
+                    <HelpCircle className="w-4 h-4 text-slate-350 dark:text-slate-500" />
                   </h3>
-                  <p className="text-slate-400 text-xs font-medium">How often do you feel emotionally drained or anxious at work?</p>
+                  <p className="text-slate-400 dark:text-slate-500 text-xs font-medium">How often do you feel emotionally drained or anxious at work?</p>
                 </div>
                 <span className={`text-sm font-extrabold px-3 py-1.5 rounded-xl border ${
                   stressLevel >= 7 
-                    ? 'bg-rose-50 border-rose-100 text-rose-600' 
+                    ? 'bg-rose-50 dark:bg-rose-950/30 border-rose-100 dark:border-rose-900/30 text-rose-600 dark:text-rose-400' 
                     : stressLevel >= 4 
-                    ? 'bg-amber-50 border-amber-100 text-amber-600' 
-                    : 'bg-emerald-50 border-emerald-100 text-emerald-600'
+                    ? 'bg-amber-50 dark:bg-amber-950/30 border-amber-100 dark:border-amber-900/30 text-amber-600 dark:text-amber-400' 
+                    : 'bg-emerald-50 dark:bg-emerald-950/30 border-emerald-100 dark:border-emerald-900/30 text-emerald-600 dark:text-emerald-400'
                 }`}>
                   {stressLevel} / 10
                 </span>
@@ -117,9 +117,9 @@ const AssessmentPage = () => {
                 step="1"
                 value={stressLevel}
                 onChange={(e) => setStressLevel(parseInt(e.target.value))}
-                className="w-full h-2 bg-slate-100 rounded-lg appearance-none cursor-pointer accent-teal-600"
+                className="w-full h-2 bg-slate-100 dark:bg-slate-800 rounded-lg appearance-none cursor-pointer accent-teal-600"
               />
-              <div className="flex justify-between text-[10px] text-slate-400 font-bold px-1 select-none">
+              <div className="flex justify-between text-[10px] text-slate-400 dark:text-slate-500 font-bold px-1 select-none">
                 <span>1 (Relaxed)</span>
                 <span>5 (Normal)</span>
                 <span>10 (Overwhelming)</span>
@@ -127,21 +127,21 @@ const AssessmentPage = () => {
             </div>
 
             {/* Input 2: Workload level */}
-            <div className="bg-white border border-slate-100 rounded-3xl p-6 shadow-sm shadow-slate-100/50 space-y-4">
+            <div className="bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800/80 rounded-3xl p-6 shadow-sm shadow-slate-100/50 dark:shadow-none space-y-4">
               <div className="flex items-center justify-between">
                 <div className="space-y-0.5">
-                  <h3 className="font-bold text-slate-700 text-sm flex items-center space-x-1.5">
+                  <h3 className="font-bold text-slate-700 dark:text-slate-200 text-sm flex items-center space-x-1.5">
                     <span>2. Physical & Task Workload</span>
-                    <HelpCircle className="w-4 h-4 text-slate-300" />
+                    <HelpCircle className="w-4 h-4 text-slate-355 dark:text-slate-500" />
                   </h3>
-                  <p className="text-slate-400 text-xs font-medium">Is your daily task count, meeting ratio, or speed too intense?</p>
+                  <p className="text-slate-400 dark:text-slate-500 text-xs font-medium">Is your daily task count, meeting ratio, or speed too intense?</p>
                 </div>
                 <span className={`text-sm font-extrabold px-3 py-1.5 rounded-xl border ${
                   workloadLevel >= 7 
-                    ? 'bg-rose-50 border-rose-100 text-rose-600' 
+                    ? 'bg-rose-50 dark:bg-rose-950/30 border-rose-100 dark:border-rose-900/30 text-rose-600 dark:text-rose-455' 
                     : workloadLevel >= 4 
-                    ? 'bg-amber-50 border-amber-100 text-amber-600' 
-                    : 'bg-emerald-50 border-emerald-100 text-emerald-600'
+                    ? 'bg-amber-50 dark:bg-amber-950/30 border-amber-100 dark:border-amber-900/30 text-amber-600 dark:text-amber-400' 
+                    : 'bg-emerald-50 dark:bg-emerald-950/30 border-emerald-100 dark:border-emerald-900/30 text-emerald-600 dark:text-emerald-400'
                 }`}>
                   {workloadLevel} / 10
                 </span>
@@ -153,9 +153,9 @@ const AssessmentPage = () => {
                 step="1"
                 value={workloadLevel}
                 onChange={(e) => setWorkloadLevel(parseInt(e.target.value))}
-                className="w-full h-2 bg-slate-100 rounded-lg appearance-none cursor-pointer accent-teal-600"
+                className="w-full h-2 bg-slate-100 dark:bg-slate-800 rounded-lg appearance-none cursor-pointer accent-teal-600"
               />
-              <div className="flex justify-between text-[10px] text-slate-400 font-bold px-1 select-none">
+              <div className="flex justify-between text-[10px] text-slate-400 dark:text-slate-500 font-bold px-1 select-none">
                 <span>1 (Very Light)</span>
                 <span>5 (Manageable)</span>
                 <span>10 (Unachievable)</span>
@@ -163,12 +163,12 @@ const AssessmentPage = () => {
             </div>
 
             {/* Input 3: Work Life Balance */}
-            <div className="bg-white border border-slate-100 rounded-3xl p-6 shadow-sm shadow-slate-100/50 space-y-4">
+            <div className="bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800/80 rounded-3xl p-6 shadow-sm shadow-slate-100/50 dark:shadow-none space-y-4">
               <div className="space-y-0.5">
-                <h3 className="font-bold text-slate-700 text-sm flex items-center space-x-1.5">
+                <h3 className="font-bold text-slate-700 dark:text-slate-200 text-sm flex items-center space-x-1.5">
                   <span>3. Work-Life Balance Scale</span>
                 </h3>
-                <p className="text-slate-400 text-xs font-medium">Do professional commitments encroach on your personal health / boundaries?</p>
+                <p className="text-slate-400 dark:text-slate-500 text-xs font-medium">Do professional commitments encroach on your personal health / boundaries?</p>
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-5 gap-3 pt-2">
@@ -179,14 +179,14 @@ const AssessmentPage = () => {
                     onClick={() => setWorkLifeBalance(b.value)}
                     className={`p-3 rounded-2xl border text-center transition-all cursor-pointer flex flex-col justify-center space-y-1.5 ${
                       workLifeBalance === b.value
-                        ? 'bg-teal-50 border-teal-400 text-teal-700 shadow-sm'
-                        : 'bg-white border-slate-200/80 hover:bg-slate-50 text-slate-600'
+                        ? 'bg-teal-50 dark:bg-teal-950/40 border-teal-400 dark:border-teal-900/60 text-teal-700 dark:text-teal-400 shadow-sm'
+                        : 'bg-white dark:bg-slate-900 border-slate-200/80 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-800 text-slate-600 dark:text-slate-350'
                     }`}
                   >
                     <span className="text-sm font-extrabold block">{b.value}</span>
                     <div>
                       <span className="text-xs font-semibold block">{b.label}</span>
-                      <span className="text-[9px] text-slate-400 block mt-0.5 leading-tight">{b.desc}</span>
+                      <span className="text-[9px] text-slate-400 dark:text-slate-500 block mt-0.5 leading-tight">{b.desc}</span>
                     </div>
                   </button>
                 ))}
@@ -194,12 +194,12 @@ const AssessmentPage = () => {
             </div>
 
             {/* Input 4: Job Satisfaction (Emojis) */}
-            <div className="bg-white border border-slate-100 rounded-3xl p-6 shadow-sm shadow-slate-100/50 space-y-4">
+            <div className="bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800/80 rounded-3xl p-6 shadow-sm shadow-slate-100/50 dark:shadow-none space-y-4">
               <div className="space-y-0.5">
-                <h3 className="font-bold text-slate-700 text-sm flex items-center space-x-1.5">
+                <h3 className="font-bold text-slate-700 dark:text-slate-200 text-sm flex items-center space-x-1.5">
                   <span>4. Job Satisfaction Score</span>
                 </h3>
-                <p className="text-slate-400 text-xs font-medium">How happy or fulfilled are you with your colleagues, managers, and roles?</p>
+                <p className="text-slate-400 dark:text-slate-500 text-xs font-medium">How happy or fulfilled are you with your colleagues, managers, and roles?</p>
               </div>
 
               <div className="grid grid-cols-5 gap-3 pt-2">
@@ -209,7 +209,7 @@ const AssessmentPage = () => {
                     type="button"
                     onClick={() => setJobSatisfaction(s.value)}
                     className={`p-3 rounded-2xl border text-center transition-all cursor-pointer flex flex-col items-center justify-center space-y-2 ${
-                      jobSatisfaction === s.value ? s.activeBg : `bg-white border-slate-200/80 text-slate-500 ${s.bg}`
+                      jobSatisfaction === s.value ? s.activeBg : `bg-white dark:bg-slate-900 border-slate-200/80 dark:border-slate-800 text-slate-500 ${s.bg}`
                     }`}
                   >
                     <div className="shrink-0 transition-transform group-hover:scale-110">{s.icon}</div>

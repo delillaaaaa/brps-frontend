@@ -77,15 +77,15 @@ const DashboardPage = () => {
   const latestPrediction = predictedAssessments[0];
 
   const getRiskBadgeColor = (level) => {
-    if (!level) return 'bg-slate-100 text-slate-600';
+    if (!level) return 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400';
     const lvl = level.toLowerCase();
-    if (lvl.includes('tinggi') || lvl.includes('high')) return 'bg-rose-50 border-rose-200 text-rose-700';
-    if (lvl.includes('sedang') || lvl.includes('medium')) return 'bg-amber-50 border-amber-200 text-amber-700';
-    return 'bg-emerald-50 border-emerald-200 text-emerald-700';
+    if (lvl.includes('tinggi') || lvl.includes('high')) return 'bg-rose-50 dark:bg-rose-950/30 border-rose-200 dark:border-rose-900/50 text-rose-700 dark:text-rose-450';
+    if (lvl.includes('sedang') || lvl.includes('medium')) return 'bg-amber-50 dark:bg-amber-950/30 border-amber-200 dark:border-amber-900/50 text-amber-700 dark:text-amber-400';
+    return 'bg-emerald-50 dark:bg-emerald-950/30 border-emerald-200 dark:border-emerald-900/50 text-emerald-700 dark:text-emerald-400';
   };
 
   return (
-    <div className="min-h-screen bg-slate-50/50 flex flex-col md:flex-row">
+    <div className="min-h-screen bg-slate-50/50 dark:bg-slate-950 flex flex-col md:flex-row">
       {/* Sidebar Navigation */}
       <Sidebar />
 
@@ -94,23 +94,23 @@ const DashboardPage = () => {
         {isLoading ? (
           /* High-end loading skeleton */
           <div className="space-y-8 animate-pulse">
-            <div className="h-28 bg-white border border-slate-100 rounded-3xl w-full" />
+            <div className="h-28 bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-3xl w-full" />
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-              <div className="h-64 bg-white border border-slate-100 rounded-3xl lg:col-span-2" />
-              <div className="h-64 bg-white border border-slate-100 rounded-3xl" />
+              <div className="h-64 bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-3xl lg:col-span-2" />
+              <div className="h-64 bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-3xl" />
             </div>
-            <div className="h-60 bg-white border border-slate-100 rounded-3xl w-full" />
+            <div className="h-60 bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-3xl w-full" />
           </div>
         ) : (
           <div className="space-y-8 animate-fade-in" style={{ animation: 'fadeIn 0.3s ease-out' }}>
             
             {/* Header Greetings Section */}
-            <div className="bg-white border border-slate-100 rounded-3xl p-6 flex flex-col md:flex-row md:items-center justify-between gap-6 shadow-sm shadow-slate-100/50">
+            <div className="bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800/80 rounded-3xl p-6 flex flex-col md:flex-row md:items-center justify-between gap-6 shadow-sm shadow-slate-100/50 dark:shadow-none">
               <div className="space-y-1.5">
-                <h1 className="text-2xl font-bold text-slate-800 tracking-tight">
+                <h1 className="text-2xl font-bold text-slate-800 dark:text-slate-100 tracking-tight">
                   Welcome back, {profile?.name || user?.name || 'Employee'}!
                 </h1>
-                <p className="text-sm text-slate-400 font-medium">
+                <p className="text-sm text-slate-400 dark:text-slate-500 font-medium">
                   {profile?.job_role || 'Role not specified'} • {profile?.department || 'Department not specified'} ({profile?.work_hours_per_week || 40}h/week)
                 </p>
               </div>
@@ -127,27 +127,27 @@ const DashboardPage = () => {
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
               
               {/* Profile Work Indicators */}
-              <div className="bg-white border border-slate-100 rounded-3xl p-6 shadow-sm shadow-slate-100/50 flex flex-col justify-between">
+              <div className="bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800/80 rounded-3xl p-6 shadow-sm shadow-slate-100/50 dark:shadow-none flex flex-col justify-between">
                 <div className="space-y-4">
                   <div className="flex items-center justify-between">
-                    <span className="text-xs font-bold text-slate-400 uppercase tracking-wider">Occupational Health</span>
+                    <span className="text-xs font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider">Occupational Health</span>
                     <Heart className="w-5 h-5 text-rose-500 fill-rose-500/10" />
                   </div>
-                  <h3 className="font-bold text-slate-800 text-lg leading-tight">Your Work Profile</h3>
+                  <h3 className="font-bold text-slate-800 dark:text-slate-200 text-lg leading-tight">Your Work Profile</h3>
                   <div className="grid grid-cols-2 gap-4 pt-2">
-                    <div className="p-3 bg-slate-50 rounded-2xl border border-slate-100">
-                      <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">Experience</span>
-                      <span className="text-base font-extrabold text-slate-800">{profile?.years_experience || 0} years</span>
+                    <div className="p-3 bg-slate-50 dark:bg-slate-950/40 rounded-2xl border border-slate-100 dark:border-slate-850">
+                      <span className="text-[10px] font-bold text-slate-400 dark:text-slate-550 uppercase tracking-wider block">Experience</span>
+                      <span className="text-base font-extrabold text-slate-800 dark:text-slate-250">{profile?.years_experience || 0} years</span>
                     </div>
-                    <div className="p-3 bg-slate-50 rounded-2xl border border-slate-100">
-                      <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">Remote Setup</span>
-                      <span className="text-base font-extrabold text-slate-800">{profile?.remote_ratio !== undefined ? Math.round(profile.remote_ratio * 100) : 50}%</span>
+                    <div className="p-3 bg-slate-50 dark:bg-slate-950/40 rounded-2xl border border-slate-100 dark:border-slate-850">
+                      <span className="text-[10px] font-bold text-slate-400 dark:text-slate-550 uppercase tracking-wider block">Remote Setup</span>
+                      <span className="text-base font-extrabold text-slate-800 dark:text-slate-250">{profile?.remote_ratio !== undefined ? Math.round(profile.remote_ratio * 100) : 50}%</span>
                     </div>
                   </div>
                 </div>
-                <div className="pt-4 border-t border-slate-50 mt-4 flex items-center justify-between text-xs font-semibold">
-                  <span className="text-slate-400">Need to update metrics?</span>
-                  <Link to="/setup-profile" className="text-teal-600 hover:text-teal-700 flex items-center space-x-1 cursor-pointer">
+                <div className="pt-4 border-t border-slate-50 dark:border-slate-800/50 mt-4 flex items-center justify-between text-xs font-semibold">
+                  <span className="text-slate-400 dark:text-slate-500">Need to update metrics?</span>
+                  <Link to="/setup-profile" className="text-teal-600 dark:text-teal-400 hover:text-teal-700 dark:hover:text-teal-350 flex items-center space-x-1 cursor-pointer">
                     <span>Edit Profile</span>
                     <ChevronRight className="w-3.5 h-3.5" />
                   </Link>
@@ -155,21 +155,21 @@ const DashboardPage = () => {
               </div>
 
               {/* Latest Risk Prediction Results */}
-              <div className="bg-white border border-slate-100 rounded-3xl p-6 shadow-sm shadow-slate-100/50 lg:col-span-2 flex flex-col justify-between">
+              <div className="bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800/80 rounded-3xl p-6 shadow-sm shadow-slate-100/50 dark:shadow-none lg:col-span-2 flex flex-col justify-between">
                 <div>
                   <div className="flex items-center justify-between mb-4">
-                    <span className="text-xs font-bold text-slate-400 uppercase tracking-wider">AI Diagnostics</span>
-                    <Brain className="w-5 h-5 text-teal-600" />
+                    <span className="text-xs font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider">AI Diagnostics</span>
+                    <Brain className="w-5 h-5 text-teal-600 dark:text-teal-400" />
                   </div>
 
                   {!latestAssessment ? (
                     <div className="py-6 flex flex-col items-center justify-center text-center space-y-3">
-                      <div className="w-12 h-12 rounded-full bg-slate-50 border border-slate-100 flex items-center justify-center text-slate-400">
+                      <div className="w-12 h-12 rounded-full bg-slate-50 dark:bg-slate-950/40 border border-slate-100 dark:border-slate-800 flex items-center justify-center text-slate-400 dark:text-slate-500">
                         <Smile className="w-6 h-6" />
                       </div>
                       <div>
-                        <h4 className="font-bold text-slate-700 text-sm">No Assessment Found</h4>
-                        <p className="text-xs text-slate-400 mt-1 max-w-xs">
+                        <h4 className="font-bold text-slate-700 dark:text-slate-350 text-sm">No Assessment Found</h4>
+                        <p className="text-xs text-slate-400 dark:text-slate-500 mt-1 max-w-xs">
                           Complete a quick 2-minute assessment to unlock AI prediction diagnostics.
                         </p>
                       </div>
@@ -178,26 +178,25 @@ const DashboardPage = () => {
                     /* Display latest run risk prediction */
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
                       <div className="space-y-3 text-left">
-                        <div className="inline-flex items-center space-x-2 px-2.5 py-1 rounded-full border text-xs font-bold uppercase tracking-wider shadow-sm select-none"
-                             className={`inline-flex items-center space-x-2 px-2.5 py-1 rounded-full border text-xs font-bold uppercase tracking-wider shadow-sm ${getRiskBadgeColor(latestPrediction.burnout_label)}`}>
+                        <div className={`inline-flex items-center space-x-2 px-2.5 py-1 rounded-full border text-xs font-bold uppercase tracking-wider shadow-sm select-none ${getRiskBadgeColor(latestPrediction.burnout_label)}`}>
                           <span>Risk: {latestPrediction.burnout_label}</span>
                         </div>
-                        <h3 className="text-xl font-bold text-slate-800 leading-tight">
+                        <h3 className="text-xl font-bold text-slate-800 dark:text-slate-200 leading-tight">
                           Burnout Probability: {Math.round(latestPrediction.burnout_score * 100)}%
                         </h3>
-                        <p className="text-xs text-slate-400 line-clamp-3 leading-relaxed mt-1.5">
+                        <p className="text-xs text-slate-400 dark:text-slate-500 line-clamp-3 leading-relaxed mt-1.5">
                           {latestPrediction.prediction_confidence || 'Wellness assessment generated by system.'}
                         </p>
                       </div>
                       
-                      <div className="bg-slate-50 border border-slate-100 rounded-2xl p-4 space-y-4">
-                        <h4 className="font-bold text-slate-700 text-xs uppercase tracking-wider">Latest Action Plan</h4>
+                      <div className="bg-slate-50 dark:bg-slate-950/40 border border-slate-100 dark:border-slate-850 rounded-2xl p-4 space-y-4">
+                        <h4 className="font-bold text-slate-700 dark:text-slate-400 text-xs uppercase tracking-wider">Latest Action Plan</h4>
                         <div className="space-y-2">
                           <Link
                             to={`/assessment/${latestPrediction.id}/result`}
-                            className="w-full flex items-center justify-between p-3 bg-white hover:bg-teal-50/20 border border-slate-200/80 rounded-xl transition-all cursor-pointer group"
+                            className="w-full flex items-center justify-between p-3 bg-white dark:bg-slate-900 hover:bg-teal-50/20 border border-slate-200/80 dark:border-slate-800 rounded-xl transition-all cursor-pointer group"
                           >
-                            <span className="text-xs font-bold text-slate-600 group-hover:text-teal-700">View Wellness Details</span>
+                            <span className="text-xs font-bold text-slate-600 dark:text-slate-350 group-hover:text-teal-700 dark:group-hover:text-teal-400">View Wellness Details</span>
                             <ChevronRight className="w-4 h-4 text-slate-400 group-hover:text-teal-600 transition-colors" />
                           </Link>
                         </div>
@@ -207,14 +206,14 @@ const DashboardPage = () => {
                     /* Assessment exists but has not been predicted yet */
                     <div className="py-6 flex flex-col md:flex-row items-center justify-between gap-6">
                       <div className="space-y-1">
-                        <h3 className="font-bold text-slate-700 text-sm">Prediction Processing Pending</h3>
-                        <p className="text-xs text-slate-400 max-w-sm leading-relaxed">
+                        <h3 className="font-bold text-slate-700 dark:text-slate-300 text-sm">Prediction Processing Pending</h3>
+                        <p className="text-xs text-slate-400 dark:text-slate-500 max-w-sm leading-relaxed">
                           Your latest assessment indicators (Stress Level: {latestAssessment.stress_level}/10) are ready. Launch the AI diagnosis framework to analyze.
                         </p>
                       </div>
                       <Link
                         to={`/assessment/${latestAssessment.id}/predict`}
-                        className="px-5 py-3 bg-teal-50 hover:bg-teal-100 text-teal-700 font-bold text-xs rounded-xl border border-teal-200/50 shadow-sm shrink-0 flex items-center space-x-2 cursor-pointer transition-colors"
+                        className="px-5 py-3 bg-teal-50 dark:bg-teal-950/30 hover:bg-teal-100 dark:hover:bg-teal-900/30 text-teal-700 dark:text-teal-400 font-bold text-xs rounded-xl border border-teal-200/50 dark:border-teal-900/40 shadow-sm shrink-0 flex items-center space-x-2 cursor-pointer transition-colors"
                       >
                         <Activity className="w-4 h-4 animate-pulse" />
                         <span>Run AI Predictor</span>
@@ -224,9 +223,9 @@ const DashboardPage = () => {
                 </div>
 
                 {latestAssessment && (
-                  <div className="pt-4 border-t border-slate-50 mt-4 flex items-center justify-between text-xs font-semibold">
-                    <span className="text-slate-400">Date recorded: {new Date(latestAssessment.created_at).toLocaleDateString()}</span>
-                    <span className="text-slate-400">Total surveys run: {assessments.length}</span>
+                  <div className="pt-4 border-t border-slate-50 dark:border-slate-800/50 mt-4 flex items-center justify-between text-xs font-semibold">
+                    <span className="text-slate-400 dark:text-slate-500">Date recorded: {new Date(latestAssessment.created_at).toLocaleDateString()}</span>
+                    <span className="text-slate-400 dark:text-slate-500">Total surveys run: {assessments.length}</span>
                   </div>
                 )}
               </div>
@@ -234,25 +233,25 @@ const DashboardPage = () => {
             </div>
 
             {/* Assessment History Table */}
-            <div className="bg-white border border-slate-100 rounded-3xl p-6 shadow-sm shadow-slate-100/50">
+            <div className="bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800/80 rounded-3xl p-6 shadow-sm shadow-slate-100/50 dark:shadow-none">
               <div className="flex items-center justify-between mb-6">
                 <div className="space-y-1">
-                  <h3 className="font-bold text-slate-800 text-base">Assessment & Stress History</h3>
-                  <p className="text-xs text-slate-400 font-medium">Review and manage your chronological wellness records.</p>
+                  <h3 className="font-bold text-slate-800 dark:text-slate-200 text-base">Assessment & Stress History</h3>
+                  <p className="text-xs text-slate-400 dark:text-slate-500 font-medium">Review and manage your chronological wellness records.</p>
                 </div>
-                <div className="w-8 h-8 rounded-lg bg-slate-50 border border-slate-100 flex items-center justify-center text-slate-400">
+                <div className="w-8 h-8 rounded-lg bg-slate-50 dark:bg-slate-950/40 border border-slate-100 dark:border-slate-800 flex items-center justify-center text-slate-400 dark:text-slate-500">
                   <Calendar className="w-4 h-4" />
                 </div>
               </div>
 
               {assessments.length === 0 ? (
-                <div className="py-12 border-2 border-dashed border-slate-100 rounded-2xl flex flex-col items-center justify-center text-center space-y-4">
-                  <div className="w-14 h-14 rounded-full bg-teal-50 flex items-center justify-center text-teal-600 shadow-inner">
+                <div className="py-12 border-2 border-dashed border-slate-100 dark:border-slate-800 rounded-2xl flex flex-col items-center justify-center text-center space-y-4">
+                  <div className="w-14 h-14 rounded-full bg-teal-50 dark:bg-teal-950/40 flex items-center justify-center text-teal-600 dark:text-teal-400 shadow-inner">
                     <Heart className="w-6 h-6 animate-pulse" />
                   </div>
                   <div className="space-y-1">
-                    <h4 className="font-bold text-slate-700">No Stress Assessments Logged</h4>
-                    <p className="text-xs text-slate-400 max-w-sm mx-auto leading-relaxed">
+                    <h4 className="font-bold text-slate-700 dark:text-slate-350">No Stress Assessments Logged</h4>
+                    <p className="text-xs text-slate-400 dark:text-slate-500 max-w-sm mx-auto leading-relaxed">
                       To track your health and fatigue parameters, log your first assessment survey.
                     </p>
                   </div>
@@ -265,10 +264,10 @@ const DashboardPage = () => {
                 </div>
               ) : (
                 /* History Records Table */
-                <div className="overflow-x-auto rounded-2xl border border-slate-100">
+                <div className="overflow-x-auto rounded-2xl border border-slate-100 dark:border-slate-800">
                   <table className="w-full text-left text-sm border-collapse">
                     <thead>
-                      <tr className="bg-slate-50 text-slate-400 font-bold border-b border-slate-100">
+                      <tr className="bg-slate-50 dark:bg-slate-950/40 text-slate-400 dark:text-slate-500 font-bold border-b border-slate-100 dark:border-slate-800">
                         <th className="px-6 py-4 font-bold text-xs uppercase tracking-wider">Date Logged</th>
                         <th className="px-6 py-4 font-bold text-xs uppercase tracking-wider text-center">Stress (1-10)</th>
                         <th className="px-6 py-4 font-bold text-xs uppercase tracking-wider text-center">Workload (1-10)</th>
@@ -278,10 +277,10 @@ const DashboardPage = () => {
                         <th className="px-6 py-4 font-bold text-xs uppercase tracking-wider text-right">Actions</th>
                       </tr>
                     </thead>
-                    <tbody className="divide-y divide-slate-100">
+                    <tbody className="divide-y divide-slate-100 dark:divide-slate-800">
                       {assessments.map((item) => (
-                        <tr key={item.id} className="hover:bg-slate-50/40 transition-colors">
-                          <td className="px-6 py-4 font-semibold text-slate-600">
+                        <tr key={item.id} className="hover:bg-slate-50/40 dark:hover:bg-slate-800/10 transition-colors">
+                          <td className="px-6 py-4 font-semibold text-slate-600 dark:text-slate-300">
                             {new Date(item.created_at).toLocaleDateString(undefined, {
                               year: 'numeric', month: 'short', day: 'numeric'
                             })}
@@ -289,22 +288,22 @@ const DashboardPage = () => {
                           <td className="px-6 py-4 text-center">
                             <span className={`inline-flex items-center justify-center w-8 h-8 rounded-lg font-extrabold text-xs border ${
                               item.stress_level >= 7 
-                                ? 'bg-rose-50 border-rose-100 text-rose-600' 
+                                ? 'bg-rose-50 dark:bg-rose-950/30 border-rose-100 dark:border-rose-900/30 text-rose-600 dark:text-rose-450' 
                                 : item.stress_level >= 4 
-                                ? 'bg-amber-50 border-amber-100 text-amber-600' 
-                                : 'bg-emerald-50 border-emerald-100 text-emerald-600'
+                                ? 'bg-amber-50 dark:bg-amber-950/30 border-amber-100 dark:border-amber-900/30 text-amber-600 dark:text-amber-400' 
+                                : 'bg-emerald-50 dark:bg-emerald-950/30 border-emerald-100 dark:border-emerald-900/30 text-emerald-600 dark:text-emerald-400'
                             }`}>
                               {item.stress_level}
                             </span>
                           </td>
                           <td className="px-6 py-4 text-center">
-                            <span className="font-semibold text-slate-600">{item.workload_level}/10</span>
+                            <span className="font-semibold text-slate-600 dark:text-slate-300">{item.workload_level}/10</span>
                           </td>
                           <td className="px-6 py-4 text-center">
-                            <span className="font-semibold text-slate-600">{item.work_life_balance}/5</span>
+                            <span className="font-semibold text-slate-600 dark:text-slate-300">{item.work_life_balance}/5</span>
                           </td>
                           <td className="px-6 py-4 text-center">
-                            <span className="font-semibold text-slate-600">
+                            <span className="font-semibold text-slate-600 dark:text-slate-300">
                               {/* Read from exact spelled DB field: job_satisfacation */}
                               {item.job_satisfacation}/5
                             </span>
@@ -320,7 +319,7 @@ const DashboardPage = () => {
                             ) : (
                               <Link
                                 to={`/assessment/${item.id}/predict`}
-                                className="inline-flex items-center space-x-1 px-2.5 py-1 rounded-full border border-teal-100 bg-teal-50/50 hover:bg-teal-50 text-teal-700 text-xs font-bold cursor-pointer transition-colors shadow-sm"
+                                className="inline-flex items-center space-x-1 px-2.5 py-1 rounded-full border border-teal-100 dark:border-teal-900/50 bg-teal-50/50 dark:bg-teal-950/30 hover:bg-teal-50 dark:hover:bg-teal-900/30 text-teal-700 dark:text-teal-400 text-xs font-bold cursor-pointer transition-colors shadow-sm"
                               >
                                 <Activity className="w-3.5 h-3.5 animate-pulse" />
                                 <span>Predict Risk</span>
@@ -330,7 +329,7 @@ const DashboardPage = () => {
                           <td className="px-6 py-4 text-right">
                             <button
                               onClick={(e) => handleDelete(item.id, e)}
-                              className="p-2 text-slate-400 hover:text-rose-500 rounded-lg hover:bg-rose-50 transition-all cursor-pointer inline-flex items-center shrink-0"
+                              className="p-2 text-slate-400 dark:text-slate-500 hover:text-rose-500 dark:hover:text-rose-450 rounded-lg hover:bg-rose-50 dark:hover:bg-rose-950/30 transition-all cursor-pointer inline-flex items-center shrink-0"
                             >
                               <Trash2 className="w-4.5 h-4.5" />
                             </button>

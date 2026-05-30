@@ -1,5 +1,7 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 @theme {
   --color-primary: #01A3B0;
   --color-primary-dark: #00828d;
@@ -50,12 +52,25 @@
   animation: progress-loading 2s ease-in-out infinite;
 }
 
+/* Premium transition style for theme switches */
+* {
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 200ms;
+}
+
 body {
   font-family: 'Outfit', 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
   background-color: #F8FAFC;
   color: #1E293B;
   margin: 0;
   min-height: 100vh;
+}
+
+/* Global body overrides for dark mode */
+.dark body {
+  background-color: #0F172A;
+  color: #F8FAFC;
 }
 
 /* Custom premium scrollbar */
@@ -72,4 +87,12 @@ body {
 }
 ::-webkit-scrollbar-thumb:hover {
   background: #94A3B8;
+}
+
+/* Dark mode custom scrollbar */
+.dark ::-webkit-scrollbar-thumb {
+  background: #334155;
+}
+.dark ::-webkit-scrollbar-thumb:hover {
+  background: #475569;
 }

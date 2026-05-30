@@ -98,7 +98,7 @@ const ProfilePage = () => {
   };
 
   return (
-    <div className="min-h-screen bg-slate-50/50 flex flex-col md:flex-row">
+    <div className="min-h-screen bg-slate-50/50 dark:bg-slate-950 flex flex-col md:flex-row">
       {/* Sidebar Navigation */}
       <Sidebar />
 
@@ -107,35 +107,35 @@ const ProfilePage = () => {
         <div className="max-w-4xl space-y-8 animate-fade-in" style={{ animation: 'fadeIn 0.3s ease-out' }}>
           
           {/* Header section */}
-          <div className="bg-white border border-slate-100 rounded-3xl p-6 flex items-center justify-between shadow-sm shadow-slate-100/50">
+          <div className="bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800/80 rounded-3xl p-6 flex items-center justify-between shadow-sm shadow-slate-100/50 dark:shadow-none">
             <div className="space-y-1.5">
-              <h1 className="text-2xl font-bold text-slate-800 tracking-tight">Account Profile</h1>
-              <p className="text-sm text-slate-400 font-medium">Manage your personal and occupational health variables.</p>
+              <h1 className="text-2xl font-bold text-slate-800 dark:text-slate-100 tracking-tight">Account Profile</h1>
+              <p className="text-sm text-slate-400 dark:text-slate-500 font-medium">Manage your personal and occupational health variables.</p>
             </div>
-            <div className="w-10 h-10 rounded-xl bg-teal-50 flex items-center justify-center text-teal-600 shadow-sm shrink-0">
+            <div className="w-10 h-10 rounded-xl bg-teal-50 dark:bg-teal-950/40 flex items-center justify-center text-teal-650 dark:text-teal-400 shadow-sm shrink-0">
               <User className="w-5 h-5" />
             </div>
           </div>
 
           {isLoading ? (
             <div className="space-y-6 animate-pulse">
-              <div className="h-44 bg-white border border-slate-100 rounded-3xl" />
-              <div className="h-64 bg-white border border-slate-100 rounded-3xl" />
+              <div className="h-44 bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-3xl" />
+              <div className="h-64 bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-3xl" />
             </div>
           ) : (
             <form onSubmit={handleSubmit} className="space-y-6">
               
               {/* Card 1: Personal Information */}
-              <div className="bg-white border border-slate-100 rounded-3xl p-6 shadow-sm shadow-slate-100/50 space-y-5">
-                <h3 className="font-bold text-slate-700 text-sm border-b border-slate-50 pb-3 flex items-center space-x-2">
-                  <User className="w-4.5 h-4.5 text-teal-600" />
+              <div className="bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800/80 rounded-3xl p-6 shadow-sm shadow-slate-100/50 dark:shadow-none space-y-5">
+                <h3 className="font-bold text-slate-700 dark:text-slate-200 text-sm border-b border-slate-50 dark:border-slate-800 pb-3 flex items-center space-x-2">
+                  <User className="w-4.5 h-4.5 text-teal-655 dark:text-teal-400" />
                   <span>Personal Credentials</span>
                 </h3>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                   {/* Full Name */}
                   <div className="space-y-1.5">
-                    <label className="text-xs font-bold text-slate-400 uppercase tracking-wider">Full Name</label>
+                    <label className="text-xs font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider">Full Name</label>
                     <div className="relative">
                       <User className="w-5 h-5 text-slate-400 absolute left-4 top-1/2 -translate-y-1/2" />
                       <input
@@ -144,14 +144,14 @@ const ProfilePage = () => {
                         value={name}
                         onChange={(e) => setName(e.target.value)}
                         placeholder="Jane Doe"
-                        className="w-full pl-12 pr-4 py-3 bg-slate-50/70 border border-slate-200/80 rounded-xl text-slate-700 text-sm focus:outline-none focus:border-teal-500 focus:bg-white transition-all font-medium"
+                        className="w-full pl-12 pr-4 py-3 bg-slate-50/70 dark:bg-slate-950/40 border border-slate-200/80 dark:border-slate-800 rounded-xl text-slate-700 dark:text-slate-200 text-sm focus:outline-none focus:border-teal-500 focus:bg-white dark:focus:bg-slate-900 transition-all font-medium"
                       />
                     </div>
                   </div>
 
                   {/* Birthday */}
                   <div className="space-y-1.5">
-                    <label className="text-xs font-bold text-slate-400 uppercase tracking-wider">Birthday Date</label>
+                    <label className="text-xs font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider">Birthday Date</label>
                     <div className="relative">
                       <Calendar className="w-5 h-5 text-slate-400 absolute left-4 top-1/2 -translate-y-1/2" />
                       <input
@@ -159,21 +159,21 @@ const ProfilePage = () => {
                         required
                         value={birthdayDate}
                         onChange={(e) => setBirthdayDate(e.target.value)}
-                        className="w-full pl-12 pr-4 py-3 bg-slate-50/70 border border-slate-200/80 rounded-xl text-slate-700 text-sm focus:outline-none focus:border-teal-500 focus:bg-white transition-all font-medium"
+                        className="w-full pl-12 pr-4 py-3 bg-slate-50/70 dark:bg-slate-950/40 border border-slate-200/80 dark:border-slate-800 rounded-xl text-slate-700 dark:text-slate-200 text-sm focus:outline-none focus:border-teal-500 focus:bg-white dark:focus:bg-slate-900 transition-all font-medium"
                       />
                     </div>
                   </div>
 
                   {/* Gender */}
                   <div className="space-y-1.5">
-                    <label className="text-xs font-bold text-slate-400 uppercase tracking-wider">Gender</label>
+                    <label className="text-xs font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider">Gender</label>
                     <div className="relative">
                       <Users className="w-5 h-5 text-slate-400 absolute left-4 top-1/2 -translate-y-1/2" />
                       <select
                         required
                         value={gender}
                         onChange={(e) => setGender(e.target.value)}
-                        className="w-full pl-12 pr-4 py-3 bg-slate-50/70 border border-slate-200/80 rounded-xl text-slate-700 text-sm focus:outline-none focus:border-teal-500 focus:bg-white transition-all font-medium appearance-none cursor-pointer"
+                        className="w-full pl-12 pr-4 py-3 bg-slate-50/70 dark:bg-slate-950/40 border border-slate-200/80 dark:border-slate-800 rounded-xl text-slate-700 dark:text-slate-200 text-sm focus:outline-none focus:border-teal-500 focus:bg-white dark:focus:bg-slate-900 transition-all font-medium appearance-none cursor-pointer"
                       >
                         <option value="" disabled>Select Gender</option>
                         <option value="male">Male</option>
@@ -189,14 +189,14 @@ const ProfilePage = () => {
 
                   {/* Registered Email (Disabled) */}
                   <div className="space-y-1.5">
-                    <label className="text-xs font-bold text-slate-400 uppercase tracking-wider">Login Email (Read-only)</label>
+                    <label className="text-xs font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider">Login Email (Read-only)</label>
                     <div className="relative">
                       <Mail className="w-5 h-5 text-slate-300 absolute left-4 top-1/2 -translate-y-1/2" />
                       <input
                         type="email"
                         disabled
                         value={email}
-                        className="w-full pl-12 pr-4 py-3 bg-slate-100 border border-slate-200 rounded-xl text-slate-400 text-sm focus:outline-none font-medium select-none cursor-not-allowed"
+                        className="w-full pl-12 pr-4 py-3 bg-slate-100 dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800 rounded-xl text-slate-400 dark:text-slate-500 text-sm focus:outline-none font-medium select-none cursor-not-allowed"
                       />
                     </div>
                   </div>
@@ -204,16 +204,16 @@ const ProfilePage = () => {
               </div>
 
               {/* Card 2: Professional Information */}
-              <div className="bg-white border border-slate-100 rounded-3xl p-6 shadow-sm shadow-slate-100/50 space-y-5">
-                <h3 className="font-bold text-slate-700 text-sm border-b border-slate-50 pb-3 flex items-center space-x-2">
-                  <Briefcase className="w-4.5 h-4.5 text-teal-600" />
+              <div className="bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800/80 rounded-3xl p-6 shadow-sm shadow-slate-100/50 dark:shadow-none space-y-5">
+                <h3 className="font-bold text-slate-700 dark:text-slate-200 text-sm border-b border-slate-50 dark:border-slate-800 pb-3 flex items-center space-x-2">
+                  <Briefcase className="w-4.5 h-4.5 text-teal-655 dark:text-teal-400" />
                   <span>Work Parameters</span>
                 </h3>
 
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
                   {/* Job Title */}
                   <div className="space-y-1.5">
-                    <label className="text-xs font-bold text-slate-400 uppercase tracking-wider">Job Role / Title</label>
+                    <label className="text-xs font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider">Job Role / Title</label>
                     <div className="relative">
                       <Briefcase className="w-5 h-5 text-slate-400 absolute left-4 top-1/2 -translate-y-1/2" />
                       <input
@@ -222,14 +222,14 @@ const ProfilePage = () => {
                         value={jobRole}
                         onChange={(e) => setJobRole(e.target.value)}
                         placeholder="e.g. Senior Developer"
-                        className="w-full pl-12 pr-4 py-3 bg-slate-50/70 border border-slate-200/80 rounded-xl text-slate-700 text-sm focus:outline-none focus:border-teal-500 focus:bg-white transition-all font-medium"
+                        className="w-full pl-12 pr-4 py-3 bg-slate-50/70 dark:bg-slate-950/40 border border-slate-200/80 dark:border-slate-800 rounded-xl text-slate-700 dark:text-slate-200 text-sm focus:outline-none focus:border-teal-500 focus:bg-white dark:focus:bg-slate-900 transition-all font-medium"
                       />
                     </div>
                   </div>
 
                   {/* Department */}
                   <div className="space-y-1.5">
-                    <label className="text-xs font-bold text-slate-400 uppercase tracking-wider">Department</label>
+                    <label className="text-xs font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider">Department</label>
                     <div className="relative">
                       <MapPin className="w-5 h-5 text-slate-400 absolute left-4 top-1/2 -translate-y-1/2" />
                       <input
@@ -238,14 +238,14 @@ const ProfilePage = () => {
                         value={department}
                         onChange={(e) => setDepartment(e.target.value)}
                         placeholder="e.g. Engineering"
-                        className="w-full pl-12 pr-4 py-3 bg-slate-50/70 border border-slate-200/80 rounded-xl text-slate-700 text-sm focus:outline-none focus:border-teal-500 focus:bg-white transition-all font-medium"
+                        className="w-full pl-12 pr-4 py-3 bg-slate-50/70 dark:bg-slate-950/40 border border-slate-200/80 dark:border-slate-800 rounded-xl text-slate-700 dark:text-slate-200 text-sm focus:outline-none focus:border-teal-500 focus:bg-white dark:focus:bg-slate-900 transition-all font-medium"
                       />
                     </div>
                   </div>
 
                   {/* Experience */}
                   <div className="space-y-1.5">
-                    <label className="text-xs font-bold text-slate-400 uppercase tracking-wider">Years of Experience</label>
+                    <label className="text-xs font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider">Years of Experience</label>
                     <input
                       type="number"
                       required
@@ -253,17 +253,17 @@ const ProfilePage = () => {
                       max="60"
                       value={yearsExperience}
                       onChange={(e) => setYearsExperience(Math.max(0, parseInt(e.target.value) || 0))}
-                      className="w-full px-4 py-3 bg-slate-50/70 border border-slate-200/80 rounded-xl text-slate-700 text-sm focus:outline-none focus:border-teal-500 focus:bg-white transition-all font-medium"
+                      className="w-full px-4 py-3 bg-slate-50/70 dark:bg-slate-950/40 border border-slate-200/80 dark:border-slate-800 rounded-xl text-slate-700 dark:text-slate-200 text-sm focus:outline-none focus:border-teal-500 focus:bg-white dark:focus:bg-slate-900 transition-all font-medium"
                     />
                   </div>
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8 pt-4">
                   {/* Hours per week */}
-                  <div className="space-y-3 bg-slate-50 border border-slate-100 rounded-2xl p-5">
+                  <div className="space-y-3 bg-slate-50 dark:bg-slate-950/40 border border-slate-100 dark:border-slate-800 rounded-2xl p-5">
                     <div className="flex items-center justify-between">
-                      <label className="text-xs font-bold text-slate-500 uppercase tracking-wider">Weekly Work Hours</label>
-                      <span className="text-xs font-bold text-teal-600 bg-teal-50 px-2 py-1 rounded-md">{workHours} hrs / week</span>
+                      <label className="text-xs font-bold text-slate-550 dark:text-slate-450 uppercase tracking-wider">Weekly Work Hours</label>
+                      <span className="text-xs font-bold text-teal-650 dark:text-teal-400 bg-teal-50 dark:bg-teal-950/40 px-2 py-1 rounded-md">{workHours} hrs / week</span>
                     </div>
                     <div className="flex items-center space-x-3">
                       <Clock className="w-5 h-5 text-slate-400 shrink-0" />
@@ -274,16 +274,16 @@ const ProfilePage = () => {
                         step="1"
                         value={workHours}
                         onChange={(e) => setWorkHours(parseInt(e.target.value))}
-                        className="w-full h-2 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-teal-600"
+                        className="w-full h-2 bg-slate-200 dark:bg-slate-800 rounded-lg appearance-none cursor-pointer accent-teal-600"
                       />
                     </div>
                   </div>
 
                   {/* Remote Ratio */}
-                  <div className="space-y-3 bg-slate-50 border border-slate-100 rounded-2xl p-5">
+                  <div className="space-y-3 bg-slate-50 dark:bg-slate-950/40 border border-slate-100 dark:border-slate-800 rounded-2xl p-5">
                     <div className="flex items-center justify-between">
-                      <label className="text-xs font-bold text-slate-500 uppercase tracking-wider">Remote Work Ratio</label>
-                      <span className="text-xs font-bold text-teal-600 bg-teal-50 px-2 py-1 rounded-md">{Math.round(remoteRatio * 100)}% Remote</span>
+                      <label className="text-xs font-bold text-slate-550 dark:text-slate-450 uppercase tracking-wider">Remote Work Ratio</label>
+                      <span className="text-xs font-bold text-teal-655 dark:text-teal-400 bg-teal-50 dark:bg-teal-950/40 px-2 py-1 rounded-md">{Math.round(remoteRatio * 100)}% Remote</span>
                     </div>
                     <div className="flex items-center space-x-3">
                       <Activity className="w-5 h-5 text-slate-400 shrink-0" />
@@ -294,7 +294,7 @@ const ProfilePage = () => {
                         step="0.1"
                         value={remoteRatio}
                         onChange={(e) => setRemoteRatio(parseFloat(e.target.value))}
-                        className="w-full h-2 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-teal-600"
+                        className="w-full h-2 bg-slate-200 dark:bg-slate-800 rounded-lg appearance-none cursor-pointer accent-teal-600"
                       />
                     </div>
                   </div>
